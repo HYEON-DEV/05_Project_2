@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css" />
+
+    <style>
+        
+        .product-view-main{
+            display: flex;
+            /* flex: 1 1 50%; */
+
+            .product-main-slider {
+                width: 58%;
+                height: 574.63px;
+                /* overflow: hidden; */
+                background-color: rgba(100,0,0,0.2);
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .product-view-about {
+                width: 50%;
+                height: 574.63px;
+                background-color: rgba(0,0,100,0.2);
+            }
+        }
+
+        /* product-view-about */
+        .product-view-about {
+            padding-right: 30px;
+            .product-cont {
+                
+
+                .flag {
+                    color: rgb(255,78,0);
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 21px;
+                }
+                .prd-name {
+                    font-size: 40px;
+                    font-weight: 700;
+                    line-height: 52px;
+                    letter-spacing: -1px;
+                    word-break: break-all;
+                    display: inline-block;
+                }
+                .share {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background: url(assets/img/ico_share.df6b9463.svg) no-repeat;
+                    margin-left: 180px;
+                    
+                }
+                .text {
+                    font-size: 18px;
+                    line-height: 24px;
+                    letter-spacing: -.45px;
+                    color: #888;
+                }
+                .desc {
+                    .icon {
+                        display: block;
+                        position: absolute;
+                        /* top: 0;
+                        left: 0; */
+                        width: 14px;
+                        height: 14px;
+                        background: url(assets/img/icon-desc.png) no-repeat;
+                    }
+                    p {
+                        position: relative;
+                        margin-top: 4px;
+                        padding-left: 18px;
+                        font-size: 12px;
+                        letter-spacing: -.3px;
+                        color: #5865f5;
+                    }
+                }
+                
+            }
+        }
+        .product-cont {
+            .product-price {
+                display: flex;
+                align-items: center;
+                height: 100px;
+                
+                .price {
+                    font-size: 28px;
+                }
+
+                .delivery-txt {
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 36px;
+                    letter-spacing: -.35px;
+                    color: #5865f5;
+                    margin-left: auto;
+                }
+            }
+            
+        }
+
+        .member {
+            padding: 20px;
+
+            .title {
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 21px;
+                letter-spacing: -.4px;
+            }
+
+            .membership-rating {
+                display: flex;
+                
+                li {
+                    width: 30%;
+                    min-width: 150px;
+                    display: flex;
+                    align-items: center;
+
+                    .mark {
+                        width: 32px;
+                        height: 32px;
+                        object-fit: cover;
+                    }
+                    .save-info {
+                        padding-left: 5px;
+                        .percentage{
+                            font-size: 12px;
+                            font-weight: bold;
+                        }
+                        .vip{ color: #5865f5; }
+                        .mileage{
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        /* .color-select {
+            display: flex;
+
+            #color-select {
+                display: flex;
+                margin-left: auto;
+            }
+            .container-radio-select {
+                display: block;
+                .clr-name {
+
+                }
+            }
+        } */
+        
+        .color-select {
+            display: flex;
+            margin-left: auto;
+            
+            .circle-color-box {
+                display: flex;
+                
+                li {                   
+                    a {
+                        display: inline-block;
+                        cursor: pointer;
+                        width: 40px;
+                        height: 38px;
+                        text-align: center;
+                        /*font-size: 14px;
+                        line-height: 1.4;
+                        letter-spacing: -.025em; */
+                        .circle-color {
+                            display: inline-block;
+                            position: relative;
+                            width: 22px;
+                            height: 22px;
+                            border: 1px solid black;
+                            border-radius: 50%;
+                            /* vertical-align: top; */
+                            .c-bg {
+                                background: rgb(0, 0, 0);
+                                display: inline-block;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 16px;
+                                height: 16px;
+                                border-radius: 50%;
+                                transform: translate(-50%, -50%); 
+                            }
+                        }
+                        .color-name {
+                            font-size: 11px;
+                            vertical-align: baseline;
+
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .line {
+            border-bottom: 1px solid #d5d5d5;
+        }
+        
+
+        footer {
+            width: 100%;
+            height: 475px;
+            background-color: black;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header></header>
+
+    <!-- body -->
+    <body>
+
+        <div class="produce-view-wrap">
+
+            <!-- view main -->
+            <div class="product-view-main">  
+                
+                <!-- main-slider image -->
+                <div class="product-main-slider">  <!---->
+                    <img src="assets/img/ILCE-7M4_1.png" />
+                </div>
+
+                <!-- product-view-about -->
+                <div class="product-view-about">  
+                    <div class="product-cont">  <!---->
+                        <div class="flag"> NEW </div>
+                        <div>
+                            <div class="prd-name"> ZV-E10M2 </div>
+                            <div class="share"> </div>
+                        </div>
+                        <div class="text"> 기록의 완성 </div>
+                        <div class="desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다.</p> </div>                     
+                    </div>
+
+                    <div class="product-cont price line">  <!---->
+                        <div class="product-price">
+                            <div class="sale">
+                                <strong class="price"> 1340000 </strong> 원
+                            </div>
+                            <div class="delivery-txt"> 무료배송 </div>
+                        </div>                        
+                    </div>
+
+                    <div class="product-cont member line">  <!---->
+                        <div class="title"> 회원별 마일리지 적립혜택 <img class="question-sign" src=""/> </div>
+                        <ul class="membership-rating">
+                            <li class="vip">
+                                <img class="mark vip" src="assets/img/membership_vip.f6121d1d.svg"/>
+                                <div class="save-info">
+                                    <span class="percentage vip"> VIP 4% </span>
+                                    <p class="mileage"> 53600 </p>
+                                </div>
+                            </li>
+                            <li class="family">
+                                <img class="mark" src="assets/img/membership_family.ea303a8f.svg"/>
+                                <div class="save-info">
+                                    <span class="percentage"> MEMBERSHIP 2% </span>
+                                    <p class="mileage"> 53600 </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="product-cont">
+                        <div class="color-select">
+                            <div> 색상 </div>
+                            <ul class="circle-color-box">
+                                <li class="on">
+                                    <a href="#블랙" class="color-btn">
+                                        <span class="circle-color">
+                                            <span class="c-bg"></span>
+                                        </span>
+                                        <span class="color-name"> 블랙 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#화이트" class="color-btn">
+                                        <span class="circle-color">
+                                            <span class="c-bg"></span>
+                                        </span>
+                                        <span class="color-name"> 화이트 </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-cont prd-select-wrap">
+                        <div class="prd-select-inner"></div>
+                        <div class="result-list"></div>
+                        <div class="result-btn-inner"></div>
+                    </div>
+                </div>                
+            </div>
+
+            <!-- recommend -->
+            <div class="product-content-first-recommend">
+                <div class="product-list">
+                    
+                </div>
+            </div>
+
+            <!-- exhibitions -->
+            <div class="product-content-exhibitions"></div>
+
+            <!-- link inner -->
+            <div class="product-content-link-inner"><!--소니알파유니버스/소니블로그/매뉴얼다운로드--></div>
+
+            <!-- content -->
+            <div class="product-content">
+                <div class="detail-tab"></div>
+                <div class="detail-info-zone"><!--긴 이미지--></div>
+            </div>
+        
+        </div>
+    </body>
+
+    <!-- footer -->
+    <footer></footer>
+</body>
+</html>
