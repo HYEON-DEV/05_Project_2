@@ -6,5 +6,8 @@ font-weight
 vip
 membership
 
-회원별마일리지적립혜택
+text 같은거끼리 같은 style....
 
+main view scroll 
+
+동그라미 자스로...?

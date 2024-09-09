@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.product-view-main{
+    display: flex;
+    /* flex: 1 1 50%; */
+
+    .product-main-slider {
+        width: 58%;
+        height: 574.63px;
+        /* overflow: hidden; */
+        background-color: rgba(100,0,0,0.1);
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .product-view-about {
+        width: 50%;
+        height: 574.63px;
+        background-color: rgba(0,0,100,0.1);
+    }
+}
+
+/* product-view-about */
+.product-view-about {
+    padding-right: 30px;
+
+    .product-cont {
+        
+        .flag {
+            color: rgb(255,78,0);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21px;
+        }
+        .prd-name {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 52px;
+            letter-spacing: -1px;
+            word-break: break-all;
+            display: inline-block;
+        }
+        .share {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url(../img/ico_share.df6b9463.svg) no-repeat;
+            margin-left: 180px;
+            
+        }
+        .text {
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -.45px;
+            color: #888;
+        }
+        .desc {
+            .icon {
+                display: block;
+                position: absolute;
+                /* top: 0;
+                left: 0; */
+                width: 14px;
+                height: 14px;
+                background: url(../img/icon-desc.png) no-repeat;
+            }
+            p {
+                position: relative;
+                margin-top: 4px;
+                padding-left: 18px;
+                font-size: 12px;
+                letter-spacing: -.3px;
+                color: #5865f5;
+            }
+        }
+        
+    }
+}
+
+.product-cont {
+    .product-price {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        
+        .price {
+            font-size: 28px;
+        }
+
+        .delivery-txt {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: -.35px;
+            color: #5865f5;
+            margin-left: auto;
+        }
+    }
+    
+}
+
+.member {
+    padding: 30px 0;
+
+    .title {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: -.4px;
+        padding-bottom: 20px;
+
+        .icon-question {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-left: 3px;
+            border-radius: 50%;
+            background: #bbb;
+            font-weight: 400;
+            text-align: center;
+            line-height: 18px;
+            color: #fff;
+        }
+    }
+
+    .membership-rating {
+        display: flex;
+        
+        li {
+            width: 30%;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+
+            .mark {
+                width: 32px;
+                height: 32px;
+                object-fit: cover;
+            }
+
+            .save-info {
+                padding-left: 5px;
+                .percentage{
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                .vip{ color: #5865f5; }
+                .mileage{
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+/* .color-select {
+    display: flex;
+
+    #color-select {
+        display: flex;
+        margin-left: auto;
+    }
+    .container-radio-select {
+        display: block;
+        .clr-name {
+
+        }
+    }
+} */
+
+.color-select {
+    display: flex;
+    justify-content: space-between;
+
+    p{
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: -.4px;
+    }
+    
+    .circle-color-box {
+        display: flex;
+        
+        li {                   
+            a {
+                display: inline-block;
+                cursor: pointer;
+                width: 40px;
+                height: 38px;
+                text-align: center;
+                /*font-size: 14px;
+                line-height: 1.4;
+                letter-spacing: -.025em; */
+
+                .circle-color {
+                    display: inline-block;
+                    position: relative;
+                    width: 22px;
+                    height: 22px;
+                    border: 1px solid black;
+                    border-radius: 50%;
+                    /* vertical-align: top; */
+
+                    .c-bg {
+                        background: rgb(0, 0, 0);
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        transform: translate(-50%, -50%); 
+                    }
+                }
+                .color-name {
+                    display: block;
+                    font-size: 11px;
+                    vertical-align: baseline;
+
+                }
+            }
+            
+        }
+    }
+}
+
+.result-btn-inner {
+    .result-btn-box {
+        ul {
+            display: flex;
+            
+            li {
+                
+                width: 64px;
+                height: 64px;
+                border: 1px solid black;
+                margin-right: 10px;
+                
+                &:last-child {
+                    flex: 1;
+                    margin-right: 0;
+                    text-align: center;
+                    line-height: 64px;
+                    font-size: 18px;
+                    letter-spacing: -.4px;
+                    background-color: black;
+                    color: white;
+                }
+                
+            }
+        }
+    }
+}
+
+.line {
+    border-bottom: 1px solid #d5d5d5;
+}
+
+
+footer {
+    width: 100%;
+    height: 475px;
+    background-color: black;
+}

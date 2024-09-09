@@ -3,226 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product View</title>
 
     <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/view.css"/>
 
-    <style>
-        
-        .product-view-main{
-            display: flex;
-            /* flex: 1 1 50%; */
-
-            .product-main-slider {
-                width: 58%;
-                height: 574.63px;
-                /* overflow: hidden; */
-                background-color: rgba(100,0,0,0.2);
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-            .product-view-about {
-                width: 50%;
-                height: 574.63px;
-                background-color: rgba(0,0,100,0.2);
-            }
-        }
-
-        /* product-view-about */
-        .product-view-about {
-            padding-right: 30px;
-            .product-cont {
-                
-
-                .flag {
-                    color: rgb(255,78,0);
-                    font-size: 16px;
-                    font-weight: 700;
-                    line-height: 21px;
-                }
-                .prd-name {
-                    font-size: 40px;
-                    font-weight: 700;
-                    line-height: 52px;
-                    letter-spacing: -1px;
-                    word-break: break-all;
-                    display: inline-block;
-                }
-                .share {
-                    display: inline-block;
-                    width: 24px;
-                    height: 24px;
-                    background: url(assets/img/ico_share.df6b9463.svg) no-repeat;
-                    margin-left: 180px;
-                    
-                }
-                .text {
-                    font-size: 18px;
-                    line-height: 24px;
-                    letter-spacing: -.45px;
-                    color: #888;
-                }
-                .desc {
-                    .icon {
-                        display: block;
-                        position: absolute;
-                        /* top: 0;
-                        left: 0; */
-                        width: 14px;
-                        height: 14px;
-                        background: url(assets/img/icon-desc.png) no-repeat;
-                    }
-                    p {
-                        position: relative;
-                        margin-top: 4px;
-                        padding-left: 18px;
-                        font-size: 12px;
-                        letter-spacing: -.3px;
-                        color: #5865f5;
-                    }
-                }
-                
-            }
-        }
-        .product-cont {
-            .product-price {
-                display: flex;
-                align-items: center;
-                height: 100px;
-                
-                .price {
-                    font-size: 28px;
-                }
-
-                .delivery-txt {
-                    font-size: 14px;
-                    font-weight: 700;
-                    line-height: 36px;
-                    letter-spacing: -.35px;
-                    color: #5865f5;
-                    margin-left: auto;
-                }
-            }
-            
-        }
-
-        .member {
-            padding: 20px;
-
-            .title {
-                font-size: 16px;
-                font-weight: 700;
-                line-height: 21px;
-                letter-spacing: -.4px;
-            }
-
-            .membership-rating {
-                display: flex;
-                
-                li {
-                    width: 30%;
-                    min-width: 150px;
-                    display: flex;
-                    align-items: center;
-
-                    .mark {
-                        width: 32px;
-                        height: 32px;
-                        object-fit: cover;
-                    }
-                    .save-info {
-                        padding-left: 5px;
-                        .percentage{
-                            font-size: 12px;
-                            font-weight: bold;
-                        }
-                        .vip{ color: #5865f5; }
-                        .mileage{
-                            font-size: 14px;
-                            font-weight: bold;
-                        }
-                    }
-                }
-            }
-        }
-        /* .color-select {
-            display: flex;
-
-            #color-select {
-                display: flex;
-                margin-left: auto;
-            }
-            .container-radio-select {
-                display: block;
-                .clr-name {
-
-                }
-            }
-        } */
-        
-        .color-select {
-            display: flex;
-            margin-left: auto;
-            
-            .circle-color-box {
-                display: flex;
-                
-                li {                   
-                    a {
-                        display: inline-block;
-                        cursor: pointer;
-                        width: 40px;
-                        height: 38px;
-                        text-align: center;
-                        /*font-size: 14px;
-                        line-height: 1.4;
-                        letter-spacing: -.025em; */
-                        .circle-color {
-                            display: inline-block;
-                            position: relative;
-                            width: 22px;
-                            height: 22px;
-                            border: 1px solid black;
-                            border-radius: 50%;
-                            /* vertical-align: top; */
-                            .c-bg {
-                                background: rgb(0, 0, 0);
-                                display: inline-block;
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                width: 16px;
-                                height: 16px;
-                                border-radius: 50%;
-                                transform: translate(-50%, -50%); 
-                            }
-                        }
-                        .color-name {
-                            font-size: 11px;
-                            vertical-align: baseline;
-
-                        }
-                    }
-                    
-                }
-            }
-        }
-        .line {
-            border-bottom: 1px solid #d5d5d5;
-        }
-        
-
-        footer {
-            width: 100%;
-            height: 475px;
-            background-color: black;
-        }
-
-        
-        
-    </style>
 </head>
 <body>
     <!-- header -->
@@ -263,7 +48,7 @@
                     </div>
 
                     <div class="product-cont member line">  <!---->
-                        <div class="title"> 회원별 마일리지 적립혜택 <img class="question-sign" src=""/> </div>
+                        <div class="title"> 회원별 마일리지 적립혜택 <span class="icon-question">!</span> </div>
                         <ul class="membership-rating">
                             <li class="vip">
                                 <img class="mark vip" src="assets/img/membership_vip.f6121d1d.svg"/>
@@ -284,7 +69,7 @@
 
                     <div class="product-cont">
                         <div class="color-select">
-                            <div> 색상 </div>
+                            <p> 색상 </p>
                             <ul class="circle-color-box">
                                 <li class="on">
                                     <a href="#블랙" class="color-btn">
@@ -306,9 +91,61 @@
                         </div>
                     </div>
                     <div class="product-cont prd-select-wrap">
-                        <div class="prd-select-inner"></div>
-                        <div class="result-list"></div>
-                        <div class="result-btn-inner"></div>
+                        <div class="prd-select-inner">
+                            <div class="prd-select-box">  
+                                <p class="tit"> 제품선택 </p>
+                                <div>
+                                    <div class="select-ui-zone">
+                                        <a href="#select" class="selected-btn">
+                                            <span class="circle-color"></span>
+                                            ZV-E10M2 / 블랙
+                                        </a>
+                                        <div class="select-inner">
+                                            <p> 제품 </p>
+                                            <ul>
+                                                <li>
+                                                    <a href="#ZV-E10M2 / 블랙" class="opt-list">
+                                                        <div class="item">
+                                                            <span class="circle-color"></span>
+                                                            <span> ZV-E10M2 / 블랙 </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selected-opt"> 선택된제품 </div>
+                        </div>
+                        <div class="result-list">
+                            <div class="result-chk-box">
+                                <p class="title">
+                                    총 상품금액
+                                    <span class="s-txt">
+                                        <span class="count"></span>
+                                    </span>
+                                </p>
+                                <p class="result-price">
+                                    <span class="num">2680000</span>원
+                                </p>
+                            </div>
+                        </div>
+                        <div class="result-btn-inner">
+                            <div class="result-btn-box">
+                                <ul>
+                                    <li class="like">
+                                        <a href="#" class="btn-icon"></a>
+                                    </li>
+                                    <li class="cart"></li>
+                                    <li class="gift"></li>
+                                    <li class="final"> 
+                                        <a href="#"> 바로 구매하기 </a> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>                
             </div>
