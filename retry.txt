@@ -1,8 +1,5 @@
 share 아이콘 flex로 변경
 
-폰트
-font-weight
-
 vip
 membership
 
@@ -11,3 +8,18 @@ text 같은거끼리 같은 style....
 main view scroll 
 
 동그라미 자스로...?
+
+
+진행중인 기획전 이미지 파일이름 같고 id에따른 폴더만 다른듯 
+
+
+img 태그 속성 alt 
+
+background arrow  굵기....
+
+
+
+
+prd-name
+prd-text   기록의완성
+prd-desc   이 제품은 기획전을 통해~~~

@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/view.css"/>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- header -->
-    <header></header>
+    <header id="header"></header>
 
     <!-- body -->
     <body>
@@ -22,23 +26,23 @@
             <div class="product-view-main">  
                 
                 <!-- main-slider image -->
-                <div class="product-main-slider">  <!---->
+                <div class="product-main-slider"> 
                     <img src="assets/img/ILCE-7M4_1.png" />
                 </div>
 
                 <!-- product-view-about -->
                 <div class="product-view-about">  
-                    <div class="product-cont">  <!---->
-                        <div class="flag"> NEW </div>
+                    <div class="product-cont-top">  
                         <div>
+                            <div class="flag"> NEW </div>
                             <div class="prd-name"> ZV-E10M2 </div>
-                            <div class="share"> </div>
+                            <div class="prd-text"> 기록의 완성 </div>
+                            <div class="prd-desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다.</p> </div>    
                         </div>
-                        <div class="text"> 기록의 완성 </div>
-                        <div class="desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다.</p> </div>                     
+                        <div class="share"> </div>                 
                     </div>
 
-                    <div class="product-cont price line">  <!---->
+                    <div class="product-cont price">  
                         <div class="product-price">
                             <div class="sale">
                                 <strong class="price"> 1340000 </strong> 원
@@ -47,8 +51,10 @@
                         </div>                        
                     </div>
 
-                    <div class="product-cont member line">  <!---->
-                        <div class="title"> 회원별 마일리지 적립혜택 <span class="icon-question">!</span> </div>
+                    <div class="divider-light"></div>
+
+                    <div class="product-cont member">  <!---->
+                        <div class="tit"> 회원별 마일리지 적립혜택 <span class="icon-question">!</span> </div>
                         <ul class="membership-rating">
                             <li class="vip">
                                 <img class="mark vip" src="assets/img/membership_vip.f6121d1d.svg"/>
@@ -67,12 +73,14 @@
                         </ul>
                     </div>
 
+                    <div class="divider-light"></div>
+
                     <div class="product-cont">
                         <div class="color-select">
-                            <p> 색상 </p>
+                            <p class="tit"> 색상 </p>
                             <ul class="circle-color-box">
                                 <li class="on">
-                                    <a href="#블랙" class="color-btn">
+                                    <a href="#" class="color-btn black">
                                         <span class="circle-color">
                                             <span class="c-bg"></span>
                                         </span>
@@ -80,7 +88,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#화이트" class="color-btn">
+                                    <a href="#" class="color-btn white">
                                         <span class="circle-color">
                                             <span class="c-bg"></span>
                                         </span>
@@ -96,46 +104,63 @@
                                 <p class="tit"> 제품선택 </p>
                                 <div>
                                     <div class="select-ui-zone">
-                                        <a href="#select" class="selected-btn">
-                                            <span class="circle-color"></span>
-                                            ZV-E10M2 / 블랙
+                                        <a href="#" class="selected-btn">
+                                            <span> 제품을 선택하세요 </span>
+                                            <span class="arrow-down">  </span>
                                         </a>
-                                        <div class="select-inner">
-                                            <p> 제품 </p>
-                                            <ul>
-                                                <li>
-                                                    <a href="#ZV-E10M2 / 블랙" class="opt-list">
-                                                        <div class="item">
-                                                            <span class="circle-color"></span>
-                                                            <span> ZV-E10M2 / 블랙 </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li></li>
-                                            </ul>
+                                        <ul class="select-inner">
+                                            <li class="inner-list">
+                                                <a href="#">
+                                                    <span class="circle"></span> <span>ZV-E10M2 / 블랙</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-list">
+                                                <a href="#">
+                                                    <span class="circle"></span> <span>ZV-E10M2 / 블랙</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="selected-opt">
+                                    <div class="selected-opt-container">
+                                        <p class="prd"> 제품 </p>
+                                        <div class="selected-name"> <span class="circle"></span><span>ZV-E10M2 / 블랙</span> </div>
+                                        <div class="selected-bottom">
+                                            <div class="count-container">
+                                                <a>-</a>
+                                                <span>1</span>
+                                                <a>+</a>
+                                            </div>
+                                            <div class="selected-price">1340000원</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="selected-opt"> 선택된제품 </div>
+                            
                         </div>
+
+                        <div class="divider-bold"></div>
+
                         <div class="result-list">
                             <div class="result-chk-box">
-                                <p class="title">
+                                <p class="tit">
                                     총 상품금액
                                     <span class="s-txt">
                                         <span class="count"></span>
                                     </span>
                                 </p>
                                 <p class="result-price">
-                                    <span class="num">2680000</span>원
+                                    <span class="num">  </span>
+                                    <span class="tit">원</span>
                                 </p>
                             </div>
                         </div>
                         <div class="result-btn-inner">
                             <div class="result-btn-box">
                                 <ul>
-                                    <li class="like">
+                                    <li class="heart">
                                         <a href="#" class="btn-icon"></a>
                                     </li>
                                     <li class="cart"></li>
@@ -152,27 +177,149 @@
 
             <!-- recommend -->
             <div class="product-content-first-recommend">
-                <div class="product-list">
-                    
+                <div>
+                    <div class="rcmd-tit"> 함께 구매하시면 좋은 추천 제품 </div>
+                    <div class="rcmd-prd-list">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- exhibitions -->
-            <div class="product-content-exhibitions"></div>
+            <div class="product-content-exhibitions">
+                <div class="exhb-tit"> 진행중인 기획전 </div>
+                <div class="exhb-cont-container">
+                    <div class="img-wrapper"> <img src="assets/img/Event-List-Banner.jpg"/> </div>
+                    <p class="exhb-text"> 사진도, 영상도 ZV로 완벽하게 </p>
+                    <p class="exhb-date"> 2024-08-12 ~ 2024-12-01 </p>
+                </div>
+            </div>
 
-            <!-- link inner -->
-            <div class="product-content-link-inner"><!--소니알파유니버스/소니블로그/매뉴얼다운로드--></div>
+            <!-- sony link -->
+            <div class="product-content-sony-link">
+                <div >
+                    <ul class="sony-link-container">
+                        <li>
+                            <a href="#" class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <!-- content -->
             <div class="product-content">
-                <div class="detail-tab"></div>
-                <div class="detail-info-zone"><!--긴 이미지--></div>
+               
+                <div class="detail-tab">
+                    <div class="tab-menu outline active">
+                        <div class="text"> 제품 개요 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="tab-menu detail">
+                        <div class="text"> 제품 상세 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="tab-menu refund">
+                        <div class="text"> 배송/환불규정 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                </div>
+
+                <div class="detail-info-zone">
+                    <div class="outline active">
+
+                        <div class="benefit-zone"> <img src="assets/img/pc_benefit.jpg"/> </div>
+
+                        <div class="outline-content"> 
+                            <div class="sony-content pad"> 
+                                <img src="assets/img/zv-e10m2_960_1.jpg"/> 
+                            </div>
+                            <div class="video-wrap pad"> 
+                                <iframe width="960" height="540" src="https://www.youtube.com/embed/JXDZVOCB4Ts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> 
+                            </div>
+                            <div class="sony-content-moving pad"> 
+                                <img src="assets/img/zv-e10m2_360_960.webp" alt="제품 개요"/> 
+                            </div>
+                            <div class="sony-content-detail pad"> 
+                                <img src="assets/img/zv-e10m2_960_2.jpg" alt="제품 개요"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail">
+                        
+                    </div>
+
+                    <div class="refund">
+                        
+                    </div>
+                </div>
             </div>
         
         </div>
     </body>
 
     <!-- footer -->
-    <footer></footer>
+    <footer>
+        <nav class="sidebar">
+            <div class="sidebar-inner">
+                <a href="#header"></a>
+            </div>
+            <!-- <button class="sidebar-btn" type="button">
+                <img src="assets/img/ic_sidebar1.svg" alt="메뉴토글"/>
+            </button> -->
+        </nav>
+
+    </footer>
 </body>
 </html>
