@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 </head>
 <body>
     <!-- header -->
@@ -20,15 +23,44 @@
     <!-- body -->
     <div class="main">
 
-        <div class="product-view-wrap">
+        <div class="product-view-wrap">    
 
-            <div class="product-view-main">  
+            <div class="product-view-main">         <!-- flex 좌측 우측 -->
                 
                 <!-- 메인 좌측 - 사진 슬라이드 -->
-                <div class="product-main-slider"> 
-                    <img class="main-img" src="assets/img/ILCE-7M4_1.png" />
+                  <!-- flex width 58% -->
+                <!--    
+                <div class="swiper product-main-slider">      
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                    </div>
+                </div> -->
+                 
+                <div class="product-main-slider">
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide s1">  </div>
+                            <div class="swiper-slide s2">Slide 2</div>
+                            <div class="swiper-slide s3">Slide 3</div>
+                        </div>
+
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev swiper-nav"></div>
+                        <div class="swiper-button-next swiper-nav"></div>
+
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
                 </div>
 
+                
                 <!-- 메인 우측 - 구매관련 -->
                 <div class="product-view-about">  
                     
@@ -214,9 +246,9 @@
             <div class="product-content-first-recommend">
                 <div>
                     <div class="rcmd-tit"> 함께 구매하시면 좋은 추천 제품 </div>
-                    <div class="rcmd-prd-list">
-                        <ul>
-                            <li>
+                    <div class="swiper-rcmd rcmd-prd-list">
+                        <ul class="swiper-wrapper-rcmd">
+                            <li class="swiper-slide-rcmd">
                                 <a href="">
                                     <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
                                     <p class="prd-name tit"> ILCE-7M4 </p>
@@ -224,31 +256,54 @@
                                 </a>
                                 <p class="price tit"> 3090000원 </p>
                             </li>
-                            <li>
+                            <li class="swiper-slide-rcmd">
                                 <a href="">
-                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
                                     <p class="prd-name tit"> ILCE-7M4 </p>
                                     <p class="prd-text"> THE CAMERA </p>
                                 </a>
                                 <p class="price tit"> 3090000원 </p>
                             </li>
-                            <li>
+                            <li class="swiper-slide-rcmd">
                                 <a href="">
-                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
                                     <p class="prd-name tit"> ILCE-7M4 </p>
                                     <p class="prd-text"> THE CAMERA </p>
                                 </a>
                                 <p class="price tit"> 3090000원 </p>
                             </li>
-                            <li>
+                            <li class="swiper-slide-rcmd">
                                 <a href="">
-                                    <div class="img-wrapper"> <img src=""/> </div>
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
                                     <p class="prd-name tit"> ILCE-7M4 </p>
                                     <p class="prd-text"> THE CAMERA </p>
                                 </a>
                                 <p class="price tit"> 3090000원 </p>
                             </li>
+                            <!--  <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li> -->
                         </ul>
+
+                        <div class="swiper-pagination-rcmd"></div>
+
+                        <div class="swiper-button-prev-rcmd"></div>
+                        <div class="swiper-button-next-rcmd"></div>
+
+                        <div class="swiper-scrollbar-rcmd"></div>
                     </div>
                 </div>
             </div>
@@ -313,6 +368,7 @@
                 <!-- TAB - INFO -->
                 <div class="detail-info-zone">
                     <!--제품개요-->
+                    
                     <div class="outline active">
 
                         <div class="pad benefit-zone-container"> 
@@ -334,16 +390,20 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!--제품상세-->
-                    <!-- <div class="detail">
+                    <!-- 
+                    <div class="detail">
 
                         <div class="pad detail-box-container"> 
                             <div class="detail-box"> <img src="assets/img/zv-e10m2_960_spec.gif"/> </div> 
                         </div>
 
-                    </div> -->
+                    </div> 
+                    -->
                     <!--배송/환불규정-->
-                    <!-- <div class="refund">
+                    <!-- 
+                    <div class="refund">
                         <h2 class="common__title h2">배송 / 환불 규정</h2>
 
                         <h3 class="common__title h3">교환 / 반품 안내 및 보증 조건과 절차</h3>
@@ -445,7 +505,9 @@
                         
                         <p class="s_txt">웹사이트 하단의 이용약관을 참조하세요.</p>
                     </div>
-                </div> -->
+                     -->
+                </div> 
+               
             </div>
         
         </div>
@@ -465,7 +527,18 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+    </script>
+ -->
+
+    <script src="assets/js/MathHyeon.js"></script>
+
     <script src="assets/js/View.js"></script>
+ 
 
 </body>
 </html>

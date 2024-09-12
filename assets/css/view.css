@@ -37,6 +37,7 @@ a, button {
     color: var(--my-color-black);
 }
 
+/* - - - - - 좌측 우측 flex 조절 - - - - - */
 .product-view-main{
     display: flex;
     /* flex: 1 1 50%; */
@@ -45,11 +46,7 @@ a, button {
         width: 58%;
         /* height: 574.63px; */
         /* overflow: hidden; */
-        background-color: rgba(100,0,0,0.1);
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
+        background-color: rgba(0,100,0,0.1);
     }
     .product-view-about {
         width: 42%;
@@ -61,7 +58,53 @@ a, button {
     }
 }
 
-/* product-view-about */
+/* - - - 메인 좌측 이미지 슬라이더 - - - */
+
+.product-main-slider {
+    .img-container {
+        width: 856px;
+        height: 856px;
+        margin: auto;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-nav {
+        --swiper-navigation-size: 32px;
+        --swiper-navigation-top-offset: 50%;
+        --swiper-navigation-sides-offset: 60px;
+        --swiper-navigation-color: var(--my-color-black);
+    }
+}
+
+.s1 { background-color: rgba(50,0,0,0.1);}
+.s2 { background-color: rgba(0,50,0,0.1);}
+.s3 { background-color: rgba(0,0,50,0.1);}
+
+.swiper-rcmd {
+    /* width: 100%;
+    height: 100%; */
+    width: 1224px;
+    height: 395px;
+    /* 
+    .swiper-nav {
+        --swiper-navigation-size: 32px;
+        --swiper-navigation-top-offset: 50%;
+        --swiper-navigation-sides-offset: 60px;
+        --swiper-navigation-color: var(--my-color-black);
+    } */
+} 
+
+
+/* - - - - - - - - - 메인 우측 - 구매관련 - - - - - - - */
 .product-view-about {
     
 
@@ -434,9 +477,10 @@ a, button {
     }
 }
 
-/* -- -- -- -- -- -- -- recommend -- -- -- -- -- -- --*/
+/* -- -- -- -- 함께 구매하시면 좋은 추천 제품 -- -- -- --*/
 .product-content-first-recommend {
     padding: 40px 0;
+    margin-top: 80px;
 
     .rcmd-tit {
         text-align: center;
@@ -446,12 +490,20 @@ a, button {
         margin-bottom: 35px;
     }
 
+    .rcmd-prd-list { 
+        width: fit-content; 
+        margin: auto;
+    }
     ul {
         display: flex;
+        justify-content: center;
+        width: fit-content;
+        
+        
         /* overflow: hidden; */
 
         li { 
-            flex: 0 0 25%;
+            margin-right: 24px;
         }
 
         .img-wrapper {
@@ -633,10 +685,10 @@ a, button {
         .outline-content {
             /* padding-bottom: 400px; */
 
-            /* .pad {
-                padding: 50px 0;
+            .pad {
+                /* padding: 50px 0; */
                 margin: auto;
-            } */
+            }
 
             .sony-content {
                 width: 960px;
