@@ -1,5 +1,5 @@
 const clr_light_grey = '#fbfbfb';
-
+/* 
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
@@ -17,6 +17,7 @@ const swiper = new Swiper('.swiper', {
       enabled: false,
     }, 
 });
+ */
 /* 
 const swiperRcmd = new Swiper('.swiper-rcmd', {
     // Optional parameters
@@ -76,7 +77,8 @@ function updateNavigationButtons() {
 
 ( async () => {
     //const params = utilHelper.getQuery();
-    const params = {"id":1};
+    const params = {id:4};
+
     const curPageId = params.id;
 
     if ( !curPageId ) {
@@ -95,9 +97,12 @@ function updateNavigationButtons() {
         alert("요청 실패");
         return;
     }
-    /* 
+      
     document.querySelector(".main-img").setAttribute( "src", `assets/img/${response.data.thumbnail}` );
-     */
+    
+
+    /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
+
     document.querySelector(".prd-name").innerHTML = response.data.title;
     
     document.querySelector(".prd-text").innerHTML = response.data.info;
@@ -109,9 +114,100 @@ function updateNavigationButtons() {
 
     document.querySelector(".family-mlg").innerHTML = (camPrice*0.02).toLocaleString();
 
+        /* -- -- 색상 -- -- */
+    if ( response.data.color ) {
+        /* 
+        const clr1 = response.data.color[0];    //console.log(clr1);
+        const clr2 = response.data.color[1];
+         */
+        const clr_name = clr => {
+            switch ( clr ) {
+                case "black":
+                    return "블랙";
+                    break;
+                case "white":
+                    return "화이트";
+                    break;
+                case "silver":
+                    return "실버";
+                    break;
+            }
+        };  //console.log(clr_name(clr1));
+        
+        const div = document.createElement('div');
+        div.classList.add('color-select');
+        document.querySelector('.product-cont-color-select').appendChild(div);
+
+        const p = document.createElement('p');
+        p.classList.add('tit');
+        p.innerHTML = "색상";
+
+        const ul = document.createElement('ul');
+        ul.classList.add('circle-color-box');
+
+        for ( let i=0; i<2; i++ ) {
+            let clr = response.data.color[i];
+
+            const li = document.createElement('li');
+
+            const a = document.createElement('a');
+            a.classList.add('color-btn');
+            a.classList.add(clr);
+
+            const span1 = document.createElement('span');
+            span1.classList.add('circle-color');
+            span1.classList.add('active');
+
+            const span2 = document.createElement('span');
+            span2.classList.add('c-bg');
+
+            span1.appendChild(span2);
+
+            const span3 = document.createElement('span');
+            span3.classList.add('circle-name');
+            span3.classList.add('active');
+            span3.innerHTML = clr_name(clr);
+
+            a.appendChild(span1);
+            a.appendChild(span3);
+            
+            li.appendChild(a);
+
+            ul.appendChild(li);
+        }        
+
+        div.appendChild(p);
+        div.appendChild(ul);
+        
+        
+        document.querySelectorAll('.color-btn').forEach( (v,i) => {
+            v.addEventListener( 'click', e => {
+                const clickIdx = i;
+    
+                document.querySelectorAll('.circle-color').forEach( (v1,i1) => {
+                    if ( clickIdx == i1 ) {
+                        v1.classList.add('active');
+                    } else {
+                        v1.classList.remove('active');
+                    }
+                } );
+                document.querySelectorAll('.color-name').forEach( (v2,i2) => {
+                    if ( clickIdx == i2 ) {
+                        v2.classList.add('active');
+                    } else {
+                        v2.classList.remove('active');
+                    }
+                } );
+                
+            } );
+        } );
+        
+    }
+    
+
 
     /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-
+    
     let response_2 = null;
 
     try {
@@ -179,12 +275,30 @@ function updateNavigationButtons() {
     
     
 } )();
-    
-( async() => {
-    
-} )();
-    
+
  
+/* -- -- 색상 선택 -- -- */
+/* document.querySelectorAll('.color-btn').forEach( (v,i) => {
+    v.addEventListener( 'click', e => {
+        const clickIdx = i;
+
+        document.querySelectorAll('.circle-color').forEach( (v1,i1) => {
+            if ( clickIdx == i1 ) {
+                v1.classList.add('active');
+            } else {
+                v1.classList.remove('active');
+            }
+        } );
+        document.querySelectorAll('.color-name').forEach( (v2,i2) => {
+            if ( clickIdx == i2 ) {
+                v2.classList.add('active');
+            } else {
+                v2.classList.remove('active');
+            }
+        } );
+        
+    } );
+} ); */
 
 
-const heart = document.querySelector(".heart");
+//const heart = document.querySelector(".heart");

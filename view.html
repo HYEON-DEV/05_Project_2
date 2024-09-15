@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/view.css"/>
+    <link rel="stylesheet" href="assets/css/main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,8 @@
 </head>
 <body>
     <!-- header -->
-    <header id="header"></header>
+    <script src="./assets/js/loadHTML.js"></script>
+    <script>loadHTML("./header.html");</script>
 
     <!-- body -->
     <div class="main">
@@ -29,37 +31,35 @@
                 
                 <!-- 메인 좌측 - 사진 슬라이드 -->
                   <!-- flex width 58% -->
-                <!--    
-                <div class="swiper product-main-slider">      
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
-                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
-                        <div class="swiper-slide img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                    
+                <div class="product-main-slider">      
+                    <div>
+                        <div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                        <!-- 
+                        <div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                        <div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div>
+                         -->
                     </div>
-                </div> -->
-                 
+                </div>
+                <!-- 
                 <div class="product-main-slider">
                     <div class="swiper">
-                        <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
-                            <!-- Slides -->
+                            
                             <div class="swiper-slide s1">  </div>
                             <div class="swiper-slide s2">Slide 2</div>
                             <div class="swiper-slide s3">Slide 3</div>
                         </div>
 
-                        <!-- If we need pagination -->
                         <div class="swiper-pagination"></div>
 
-                        <!-- If we need navigation buttons -->
                         <div class="swiper-button-prev swiper-nav"></div>
                         <div class="swiper-button-next swiper-nav"></div>
 
-                        <!-- If we need scrollbar -->
                         <div class="swiper-scrollbar"></div>
                     </div>
                 </div>
-
+ -->
                 
                 <!-- 메인 우측 - 구매관련 -->
                 <div class="product-view-about">  
@@ -110,20 +110,21 @@
                     <!-- 구분선 -->
                     <div class="divider-light"></div>
                     <!-- 색상 -->
-                    <div class="product-cont">
+                    <div class="product-cont-color-select">
+                        <!-- 
                         <div class="color-select">
                             <p class="tit"> 색상 </p>
                             <ul class="circle-color-box">
-                                <li class="on">
-                                    <a href="" class="color-btn black">
-                                        <span class="circle-color">
+                                <li>
+                                    <a class="color-btn black">
+                                        <span class="circle-color active">
                                             <span class="c-bg"></span>
                                         </span>
-                                        <span class="color-name"> 블랙 </span>
+                                        <span class="color-name active"> 블랙 </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="color-btn white">
+                                    <a class="color-btn white">
                                         <span class="circle-color">
                                             <span class="c-bg"></span>
                                         </span>
@@ -132,6 +133,7 @@
                                 </li>
                             </ul>
                         </div>
+                         -->
                     </div>
                     <!-- 제품선택 -->
                     <div class="product-cont prd-select-wrap">
@@ -521,18 +523,16 @@
     </div>
 
     <!-- footer -->
-    <footer>
+   <!--  <footer>
         <nav class="sidebar">
             <div class="sidebar-inner">
                 <a href="header"></a>
             </div>
-            <!-- <button class="sidebar-btn" type="button">
-                <img src="assets/img/ic_sidebar1.svg" alt="메뉴토글"/>
-            </button> -->
+            
         </nav>
 
-    </footer>
-
+    </footer> -->
+    <script>loadHTML("./footer.html");</script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -546,6 +546,10 @@
     <script src="assets/js/ArrayHyeon.js"></script>
 
     <script src="assets/js/View.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/common.js"></script>
  
 
 </body>
