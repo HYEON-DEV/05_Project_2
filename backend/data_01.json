@@ -8,7 +8,11 @@
             "type": "ILC",
             "frame": "APS-C",
             "date": 202407,
-            "color": ["black","white"]
+            "color": ["black","white"],
+            "img" : { 
+                "clr0": ["camera1_clr0_0.png"],
+                "clr1": ["camera1_clr1_0.png","camera1_clr1_1.png"] 
+            }
         },
         {
             "id": 2,
@@ -49,7 +53,8 @@
             "info": "나를 담는 브이로그 카메라 ZV-1F",
             "price": 759000,
             "type": "compact",
-            "date": 202208
+            "date": 202208,
+            "color": ["white","black"]
         }
     
     ]

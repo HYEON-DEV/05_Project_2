@@ -77,7 +77,7 @@ function updateNavigationButtons() {
 
 ( async () => {
     //const params = utilHelper.getQuery();
-    const params = {id:4};
+    const params = {id:1};
 
     const curPageId = params.id;
 
@@ -156,7 +156,7 @@ function updateNavigationButtons() {
 
             const span1 = document.createElement('span');
             span1.classList.add('circle-color');
-            span1.classList.add('active');
+            if( i==0 ) span1.classList.add('active');
 
             const span2 = document.createElement('span');
             span2.classList.add('c-bg');
@@ -164,8 +164,8 @@ function updateNavigationButtons() {
             span1.appendChild(span2);
 
             const span3 = document.createElement('span');
-            span3.classList.add('circle-name');
-            span3.classList.add('active');
+            span3.classList.add('color-name');
+            if( i==0 ) span3.classList.add('active');
             span3.innerHTML = clr_name(clr);
 
             a.appendChild(span1);
@@ -179,7 +179,7 @@ function updateNavigationButtons() {
         div.appendChild(p);
         div.appendChild(ul);
         
-        
+         
         document.querySelectorAll('.color-btn').forEach( (v,i) => {
             v.addEventListener( 'click', e => {
                 const clickIdx = i;
@@ -198,16 +198,80 @@ function updateNavigationButtons() {
                         v2.classList.remove('active');
                     }
                 } );
+                //let clrNum = `clr${i}`;
+                //const img = `response.data.img.${clrNum}[0]`; console.log(img);
+                document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curPageId}/clr${i}_${[0]}.png` );
                 
             } );
         } );
+
+        document.querySelector('.selected-btn').addEventListener( 'click', e => {
+            //const current = e.currentTarget;
+            const ul = document.querySelector('.select-inner');
+            ul.classList.toggle('active');       
+    
+            const circleColor = selectorName => {
+                const selector = document.querySelector( selectorName ); 
+                selector.classList.add('color-btn');
+                
+                const span1 = document.createElement('span');
+                span1.classList.add('circle-color');
+        
+                const span2 = document.createElement('span');
+                span2.classList.add('c-bg');
+        
+                span1.appendChild(span2);
+                selector.appendChild(span1);
+            };
+            
+            const colorNum = response.data.color.length;
+            for ( let i=0; i<colorNum; i++ ) {
+                const li = document.createElement('li');
+                li.classList.add('inner-list');
+
+                if ( colorNum > 1 ) {
+                    const a = document.createElement('a');
+        
+                    const span1 = document.createElement('span');
+                    span1.classList.add('circle-prd-clr');
+        
+                    circleColor('.circle-prd-clr');
+        
+                    a.appendChild(span1);
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+                
+            } 
+        
+/* 
+            document.querySelectorAll('.inner-list').forEach( (v,i) => {
+                const a = document.createElement('a');
+    
+                const span1 = document.createElement('span');
+                span1.classList.add('circle-prd-clr');
+    
+                circleColor('.circle-prd-clr');
+    
+                a.appendChild(span1);
+    
+                v.appendChild(a);
+    
+                
+            } ); */
+            
+        } )
         
     }
+
     
 
+    
+    
+    
 
     /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-    
+    /* 
     let response_2 = null;
 
     try {
@@ -272,7 +336,7 @@ function updateNavigationButtons() {
         li.appendChild(a);
         li.appendChild(p3);
     } );    
-    
+    */
     
 } )();
 

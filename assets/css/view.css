@@ -320,7 +320,7 @@ a, button {
     }
 }
 
-
+/* -- -- -- -- -- -- 제품선택 -- -- -- -- -- --  */
 .prd-select-box {
     padding-bottom: 20px;
     
@@ -356,12 +356,14 @@ a, button {
     position: relative;
     
     ul {
+        display: none;
         width: 100%;
         border: #d5d5d5 solid 1px;
         border-top: none;
         font-size: 16px;
         line-height: 22px;
         color: var(--my-color-black);
+        &.active { display: block;}
     }
     .select-inner {
         position: absolute;
