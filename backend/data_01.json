@@ -33,7 +33,8 @@
             "price": 7980000,
             "type": "ILC",
             "frame": "full-frame",
-            "date": 202401
+            "date": 202401,
+            "color": ["black"]
         },
         {
             "id": 4,
