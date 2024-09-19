@@ -9,6 +9,7 @@
     --my-color-black: #222;
     --my-color-orange: rgb(255, 78, 0);
     --my-color-silver: rgb(181, 181, 181);
+    --my-color-light-blue: #f4f7fa;
 }
 
 * {
@@ -47,7 +48,7 @@ a, button {
         width: 58%;
         /* height: 574.63px; */
         /* overflow: hidden; */
-        background-color: rgba(0,100,0,0.1);
+        background-color: var(--my-color-light-blue);
     }
     .product-view-about {
         width: 42%;
@@ -62,9 +63,7 @@ a, button {
 /* - - - 메인 좌측 이미지 슬라이더 - - - */
 
 .product-main-slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     .img-container {
         width: 856px;
         height: 856px;
@@ -108,6 +107,15 @@ a, button {
     } */
 } 
 
+.view_swiper {
+    width: 100%;
+
+    swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 /* - - - - - - - - - 메인 우측 - 구매관련 - - - - - - - */
 .product-view-about {
@@ -589,7 +597,53 @@ a, button {
         }
     }
 }
- 
+
+.recommendSwiper {
+    width: 1200px;
+
+    .recommend-img-container {
+        display:flex;
+        flex-direction: column;
+
+        .recommend-img{
+            background-color: var(--my-color-light-blue);
+            width: 282px;
+            height: 282px;
+        }
+
+        .recommend-title {
+            margin: 16px 0;
+            font-size: 18px;
+            font-weight: 700;
+            height: auto;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            color: var(--my-color-black);
+            line-height: 1.4;
+            letter-spacing: -.025em;
+            word-break: keep-all;
+        }
+
+        .recommend-desc {
+            min-height: 48px;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            font-size: 14px;
+            line-height: 24px;
+            color: #666;
+        }
+
+        .recommend-price {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}
+
 /* -- -- -- -- -- -- -- exhibitions -- -- -- -- -- -- --*/
 .product-content-exhibitions {
     /* width: 100%; */

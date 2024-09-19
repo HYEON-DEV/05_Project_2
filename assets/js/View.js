@@ -268,13 +268,16 @@ const clr_name = clr => {
 
         /* -- -- 제품 선택 - 선택된 제품 박스 -- -- */
     
-    document.querySelectorAll('.inner-list').forEach( (v,i) => {
+    //const selectedOpts = [];
+    let total = 0;
+
+    document.querySelectorAll('.inner-list').forEach( (v,i) => {    // submenu list  선택할 제품 목록
         
         v.addEventListener( 'click', e => {
             e.preventDefault();
-            const current = e.currentTarget;
+            const current = e.currentTarget;    // 클릭한 선택한 제품 ex) "ILCE-7CM2 / 실버"
             
-            const createBox = () => {
+            //const createBox = () => {
                 const div1 = document.createElement('div');
                 div1.classList.add('selected-opt');
         
@@ -331,7 +334,7 @@ const clr_name = clr => {
 
                 const div7 = document.createElement('div');
                 div7.classList.add('selected-price');
-                div7.innerHTML = `${response.data.price.toLocaleString()}원`;
+                div7.innerHTML = `${(response.data.price).toLocaleString()}원`;
 
                 div5.appendChild(div6);
                 div5.appendChild(div7);
@@ -344,8 +347,36 @@ const clr_name = clr => {
                 //console.log(div1);
                 
                 document.querySelector('.prd-select-box').appendChild(div1);
-            };  
- 
+
+                //selectedOpts.push(div1);
+                //console.log(selectedOpts); // 현재까지 생성된 선택된 옵션 출력
+                
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    div1.remove(); // 해당 선택된 옵션 삭제
+                     /* 
+                    const index = selectedOpts.indexOf(div1);
+                    if (index > -1) {
+                        selectedOpts.splice(index, 1); // 배열에서도 삭제
+                    }
+                    console.log(selectedOpts); // 현재까지 선택된 옵션 출력
+                     */
+                });
+
+                total += input.value * response.data.price;
+               
+           // };  
+            /* 
+            // 중복 선택 방지
+            const existingOpt = document.querySelector(`.selected-opt .${colorArr[i]}`);
+            if (existingOpt) {
+                alert('이미 선택된 옵션입니다.');
+                return;
+            }
+
+            const existingOpt = Array.from(document.querySelectorAll('.selected-opt')).find(v1 => v1.querySelector(`.${colorArr[i]}`) );
+            */
+           /* 
             if ( document.querySelector('.selected-opt') ) {
                 document.querySelectorAll('.selected-opt').forEach( (v1,i1) => {
                     if( v1.querySelector(`.${colorArr[i]}`) ) {
@@ -359,128 +390,130 @@ const clr_name = clr => {
             } else {
                 createBox();
             }
-            
+            */
             ulSelectInner.classList.remove('active');
 
-            //console.log(document.querySelectorAll('.prd-delete'));
+            document.querySelector('.result-price .num').innerHTML = total.toLocaleString();
         } );
 
         
-    } );
-/* 
-    const selectedOpt = document.querySelectorAll('.selected-opt');
-    console.log(selectedOpt);
-     */
-    
-    document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
-        const a = document.createElement('a');
-        a.classList.add('btn-icon');
-        v.appendChild(a);
-
-        //const urlName = v.classList[0];
-        const iconUrl = `../img/ico_${v.classList[0]}.svg`;
-        console.log(iconUrl);
-        //v.style.background = `url(${url}) no-repeat center`;
-        v.style.background = `url(${iconUrl}) no-repeat center`;
-    } );
-
-    
-    
-    
-
-    /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-    /* 
-    let response_2 = null;
-
-    try {
-        response_2 = await axios.get(`http://localhost:3001/camera`);
-        //console.log(response_2.data);
-    } catch (e) {
-        console.error(e);
-        alert("요청 실패");
-        return;
-    }    
-
-    let dataArr;
-    response_2.data.some( (v,i) => {
-        if ( v.id == curPageId ) {
-            dataArr = arrayHyeon.removeElementAtIndex(response_2.data,i);
-            return true;
-        }
-    } );
-    //  some 메서드   탐색을 중단하는 기능 제공
-    //  콜백함수가 true 리턴하는 순간 전체 반복 중단 
-    //  console.log(dataArr);
-
-    const randomData = arrayHyeon.shuffleArray(dataArr);
-    console.log(randomData);
-        
-    const swiperWrapper = document.querySelector('.swiper-wrapper-rcmd');
-
-    randomData.forEach( (v,i) => {
-        const li = document.createElement('li');
-        swiperWrapper.appendChild(li);
-
-        const a = document.createElement('a');
-        a.setAttribute('href',`view.html?id=${v.id}`);
-
-        const div = document.createElement('div');      // swiper slide 클래스이름 추가~~~~~~
-        div.classList.add('img-wrapper');
-        div.style.backgroundColor = clr_light_grey;
-        
-        const img = document.createElement('img');
-        img.setAttribute('src',`assets/img/camera${v.id}.png`);
-        
-        div.appendChild(img);
-
-        const p1 = document.createElement('p');
-        p1.classList.add('prd-name');
-        p1.classList.add('tit');
-        p1.innerHTML = v.title;
-        
-        const p2 = document.createElement('p');
-        p2.classList.add('prd-text');
-        p2.innerHTML = v.info;
-
-        a.appendChild(div);
-        a.appendChild(p1);
-        a.appendChild(p2);
-
-        const p3 = document.createElement('p');
-        p3.classList.add('price');
-        p3.classList.add('tit');
-        p3.innerHTML = v.price.toLocaleString();
-
-        li.appendChild(a);
-        li.appendChild(p3);
-    } );    
-    */
-    
-    document.querySelectorAll('.tab-menu').forEach( (v,i) => {
-        v.addEventListener( 'click', e => {
-            const current = e.currentTarget;
-            current.classList.add('active');
-            
-            document.querySelectorAll('.tab-menu').forEach( (w,j) => {
-                if ( w !== current ) {
-                    w.classList.remove('active');
-                }
-            } );
-
-            document.querySelectorAll('.tab-zone').forEach( (v1,i1) => {
-                if ( i == i1 ) {
-                    v1.classList.add('active');
-                } else {
-                    v1.classList.remove('active');
-                }
-            } );
-        } );
     } );
 
 } )();
 
+setTimeout(() => {
+    const selectedOpt = document.querySelectorAll('.selected-opt');
+    selectedOpt.forEach((v) => {
+        const priceElement = v.querySelector('.selected-price');
+        if (priceElement) {
+            console.log(priceElement.innerHTML);
+        }
+    });
+}, 100);
 
  
 
+/* -- -- -- 찜, 장바구니, 선물하기, 구매하기 -- -- -- */
+
+document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
+    const a = document.createElement('a');
+    a.classList.add('btn-icon');
+    v.appendChild(a);
+
+    const iconUrl = `../assets/img/ico_${v.classList[0]}.svg`;
+    v.style.background = `url(${iconUrl}) no-repeat center`;
+} );
 
 
+/* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
+/* 
+let response_2 = null;
+
+try {
+    response_2 = await axios.get(`http://localhost:3001/camera`);
+    //console.log(response_2.data);
+} catch (e) {
+    console.error(e);
+    alert("요청 실패");
+    return;
+}    
+
+let dataArr;
+response_2.data.some( (v,i) => {
+    if ( v.id == curPageId ) {
+        dataArr = arrayHyeon.removeElementAtIndex(response_2.data,i);
+        return true;
+    }
+} );
+//  some 메서드   탐색을 중단하는 기능 제공
+//  콜백함수가 true 리턴하는 순간 전체 반복 중단 
+//  console.log(dataArr);
+
+const randomData = arrayHyeon.shuffleArray(dataArr);
+console.log(randomData);
+    
+const swiperWrapper = document.querySelector('.swiper-wrapper-rcmd');
+
+randomData.forEach( (v,i) => {
+    const li = document.createElement('li');
+    swiperWrapper.appendChild(li);
+
+    const a = document.createElement('a');
+    a.setAttribute('href',`view.html?id=${v.id}`);
+
+    const div = document.createElement('div');      // swiper slide 클래스이름 추가~~~~~~
+    div.classList.add('img-wrapper');
+    div.style.backgroundColor = clr_light_grey;
+    
+    const img = document.createElement('img');
+    img.setAttribute('src',`assets/img/camera${v.id}.png`);
+    
+    div.appendChild(img);
+
+    const p1 = document.createElement('p');
+    p1.classList.add('prd-name');
+    p1.classList.add('tit');
+    p1.innerHTML = v.title;
+    
+    const p2 = document.createElement('p');
+    p2.classList.add('prd-text');
+    p2.innerHTML = v.info;
+
+    a.appendChild(div);
+    a.appendChild(p1);
+    a.appendChild(p2);
+
+    const p3 = document.createElement('p');
+    p3.classList.add('price');
+    p3.classList.add('tit');
+    p3.innerHTML = v.price.toLocaleString();
+
+    li.appendChild(a);
+    li.appendChild(p3);
+} );    
+*/
+
+
+
+/* -- -- -- 제품개요/상세/배송,환불규정  TAB -- -- -- */
+
+document.querySelectorAll('.tab-menu').forEach( (v,i) => {
+    v.addEventListener( 'click', e => {
+        const current = e.currentTarget;
+        current.classList.add('active');
+        
+        document.querySelectorAll('.tab-menu').forEach( (w,j) => {
+            if ( w !== current ) {
+                w.classList.remove('active');
+            }
+        } );
+
+        document.querySelectorAll('.tab-zone').forEach( (v1,i1) => {
+            if ( i == i1 ) {
+                v1.classList.add('active');
+            } else {
+                v1.classList.remove('active');
+            }
+        } );
+    } );
+} );
