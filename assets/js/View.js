@@ -107,7 +107,7 @@ const clr_name = clr => {
 
 ( async () => {
     //const params = utilHelper.getQuery();
-    const params = {id:4};
+    const params = {id:1};
 
     const curPageId = params.id;
 
