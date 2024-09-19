@@ -269,7 +269,7 @@ const clr_name = clr => {
         /* -- -- 제품 선택 - 선택된 제품 박스 -- -- */
     
     //const selectedOpts = [];
-    let total = 0;
+    //let total = 0;
 
     document.querySelectorAll('.inner-list').forEach( (v,i) => {    // submenu list  선택할 제품 목록
         
@@ -363,7 +363,7 @@ const clr_name = clr => {
                      */
                 });
 
-                total += input.value * response.data.price;
+                //total += input.value * response.data.price;
                
            // };  
             /* 
@@ -393,14 +393,113 @@ const clr_name = clr => {
             */
             ulSelectInner.classList.remove('active');
 
-            document.querySelector('.result-price .num').innerHTML = total.toLocaleString();
+            //document.querySelector('.result-price .num').innerHTML = total.toLocaleString();
         } );
 
         
     } );
+    /* 
+    const prdSelectBox = document.querySelector('.prd-select-box');
+      
+    let observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            console.log(mutation);
+ 
+           
+            //const cntBox = document.querySelectorAll('.cnt-box');
+             
+            document.querySelectorAll('.plus').forEach( (v,i) => {
+                v.addEventListener('click', e => {
 
-} )();
+                });
+            }); 
+                      
+            const selectedPrice = document.querySelectorAll('.selected-price');
+            selectedPrice.forEach( (v,i) => { 
+            
+            let price1 = selectedPrice[0].innerHTML;
+            console.log(price1);
 
+            let cntBox = document.querySelector('.cnt-box').value;
+
+            let total = price1 * cntBox;
+            }); 
+        });
+    });
+    observer.observe(prdSelectBox, { childList: true });
+      */  
+     
+    
+
+
+})();
+
+
+/* -- -- -- -- 총 상품금액 계산 -- -- -- -- */
+const totalPrice = document.querySelector('.result-price .num');
+
+function calculateTotal() {
+    const selectedOpts = document.querySelectorAll('.selected-opt');
+    let total = 0;
+
+    selectedOpts.forEach(opt => {
+        const priceText = opt.querySelector('.selected-price').textContent;
+        const countInput = opt.querySelector('.cnt-box[type="text"]');
+
+        if (priceText && countInput) {
+            const price = parseInt(priceText.replace(/[^\d]/g, ''), 10);
+            const count = parseInt(countInput.value, 10);
+            total += price * count;
+        }
+    });
+
+    totalPrice.textContent = total.toLocaleString();
+}
+
+// MutationObserver 설정
+const observer = new MutationObserver(() => {
+    calculateTotal();
+});
+
+// 관찰할 설정
+const config = {
+    childList: true,
+    subtree: true
+};
+
+// prdSelectBox 요소에 대해 관찰 시작
+const prdSelectBox = document.querySelector('.prd-select-box');
+if (prdSelectBox) {
+    observer.observe(prdSelectBox, config);
+} else {
+    console.error('prd-select-box 요소가 존재하지 않습니다.');
+}
+
+// 버튼 클릭 이벤트 설정
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('plus') || e.target.classList.contains('minus')) {
+        const inputField = e.target.parentElement.querySelector('.cnt-box[type="text"]');
+        if (inputField) {
+            let count = parseInt(inputField.value, 10);
+
+            if (e.target.classList.contains('plus')) {
+                count++;
+            } else if (e.target.classList.contains('minus')) {
+                count = count > 1 ? count - 1 : 1; // 최소값 1로 설정
+            }
+
+            inputField.value = count;
+            calculateTotal(); // 총 금액 재계산
+        }
+    }
+});
+
+// 초기 총 금액 계산
+calculateTotal();
+
+
+
+/* 
 setTimeout(() => {
     const selectedOpt = document.querySelectorAll('.selected-opt');
     selectedOpt.forEach((v) => {
@@ -410,7 +509,7 @@ setTimeout(() => {
         }
     });
 }, 100);
-
+ */
  
 
 /* -- -- -- 찜, 장바구니, 선물하기, 구매하기 -- -- -- */
@@ -426,72 +525,88 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
 
 
 /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-/* 
-let response_2 = null;
 
-try {
-    response_2 = await axios.get(`http://localhost:3001/camera`);
-    //console.log(response_2.data);
-} catch (e) {
-    console.error(e);
-    alert("요청 실패");
-    return;
-}    
+( async () => {
+    //const params = utilHelper.getQuery();
+    const params = {id:4};
 
-let dataArr;
-response_2.data.some( (v,i) => {
-    if ( v.id == curPageId ) {
-        dataArr = arrayHyeon.removeElementAtIndex(response_2.data,i);
-        return true;
+    const curPageId = params.id;
+
+    if ( !curPageId ) {
+        alert("제품이 없습니다");
+        history.back();
+        return;
     }
-} );
-//  some 메서드   탐색을 중단하는 기능 제공
-//  콜백함수가 true 리턴하는 순간 전체 반복 중단 
-//  console.log(dataArr);
 
-const randomData = arrayHyeon.shuffleArray(dataArr);
-console.log(randomData);
-    
-const swiperWrapper = document.querySelector('.swiper-wrapper-rcmd');
+    let response = null;
 
-randomData.forEach( (v,i) => {
-    const li = document.createElement('li');
-    swiperWrapper.appendChild(li);
+    try {
+        response = await axios.get(`http://localhost:3001/camera`);
+        //console.log(response.data);
+    } catch (e) {
+        console.error(e);
+        alert("요청 실패");
+        return;
+    }    
 
-    const a = document.createElement('a');
-    a.setAttribute('href',`view.html?id=${v.id}`);
+    let dataArr;
+    response.data.some( (v,i) => {
+        if ( v.id == curPageId ) {
+            dataArr = arrayHyeon.removeElementAtIndex(response.data,i);
+            return true;
+        }
+    } );
+    //  some 메서드   탐색을 중단하는 기능 제공
+    //  콜백함수가 true 리턴하는 순간 전체 반복 중단 
+    //  console.log(dataArr);
 
-    const div = document.createElement('div');      // swiper slide 클래스이름 추가~~~~~~
-    div.classList.add('img-wrapper');
-    div.style.backgroundColor = clr_light_grey;
-    
-    const img = document.createElement('img');
-    img.setAttribute('src',`assets/img/camera${v.id}.png`);
-    
-    div.appendChild(img);
+    const randomData = arrayHyeon.shuffleArray(dataArr);
+    console.log(randomData);
 
-    const p1 = document.createElement('p');
-    p1.classList.add('prd-name');
-    p1.classList.add('tit');
-    p1.innerHTML = v.title;
-    
-    const p2 = document.createElement('p');
-    p2.classList.add('prd-text');
-    p2.innerHTML = v.info;
+    const swiperContainer = document.querySelector('.recommendSwiper');
 
-    a.appendChild(div);
-    a.appendChild(p1);
-    a.appendChild(p2);
+    randomData.forEach( (v,i) => {
+        const swiperSlide = document.createElement('swiper-slide');
 
-    const p3 = document.createElement('p');
-    p3.classList.add('price');
-    p3.classList.add('tit');
-    p3.innerHTML = v.price.toLocaleString();
+        const div = document.createElement('div');
+        div.classList.add('recommend-img-container');
+        
+        const a = document.createElement('a');
+        a.setAttribute('href',`view.html?id=${v.id}`);
 
-    li.appendChild(a);
-    li.appendChild(p3);
-} );    
-*/
+        const img = document.createElement('img');
+        img.classList.add('recommend-img');
+        const randClr =  Math.floor(Math.random() * 2);
+        img.setAttribute('src',`assets/img/camera${curPageId}/clr${randClr}_${[0]}.png` );
+
+        a.appendChild(img);
+        
+        //div.style.backgroundColor = clr_light_grey;
+        
+        const span1 = document.createElement('span');
+        span1.classList.add('recommend-title');
+        span1.innerHTML = v.title;
+        
+        const span2 = document.createElement('span');
+        span2.classList.add('recommend-desc');
+        span2.innerHTML = v.info;
+        
+        const span3 = document.createElement('span');
+        span3.classList.add('recommend-price');
+        span3.innerHTML = v.price.toLocaleString() + '원';
+
+        div.appendChild(a);
+        div.appendChild(span1);
+        div.appendChild(span2);
+        div.appendChild(span3);
+        swiperSlide.appendChild(div);
+        swiperContainer.appendChild(swiperSlide);
+    } );    
+
+
+})();
+
+
 
 
 
