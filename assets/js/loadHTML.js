@@ -14,5 +14,3 @@ function loadHTML(file) {
     }
     rawFile.send(null);
 }
-
-

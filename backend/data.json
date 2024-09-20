@@ -1,4 +1,4 @@
-{ 
+{ "products": { 
     "camera": { 
       "lens_change": {
           "full_frame": [
@@ -18,7 +18,7 @@
                   "info": "원핸드 컴팩트 풀프레임",
                   "price": 2690000,
                   "date": 202309,
-                  "color": [ "grey", "black" ]
+                  "color": [ "silver", "black" ]
               }
           ],
           "APS-C": [
@@ -49,7 +49,8 @@
               "title": "ZV-1F",
               "info": "나를 담는 브이로그 카메라 ZV-1F",
               "price": 759000,
-              "date": 202208
+              "date": 202208,
+              "color": ["white","black"]
           }
       ]
     }, 
@@ -62,7 +63,8 @@
             "title": "BURANO",
             "info": "풀프레임 8.6K 시네마 카메라",
             "price": 36990000,
-            "date": 202402
+            "date": 202402,
+            "color": ["black"]
         }, 
         {
             "id": 2,
@@ -70,7 +72,8 @@
             "title": "ILME-FR7",
             "info": "시네마라인 렌즈교환식 PTZ 카메라",
             "price": 14990000,
-            "date": 202211
+            "date": 202211,
+            "color": ["black"]
         }, 
         {
             "id": 3,
@@ -78,7 +81,8 @@
             "title": "ILME-FX30B (바디킷)",
             "info": "시네마라인 Super 35mm 카메라 (바디 킷)",
             "price": 2699000,
-            "date": 202210
+            "date": 202210,
+            "color": ["black"]
         } ],
       "camcorder": { 
           "4k_handy": [ 
@@ -88,7 +92,8 @@
                 "title": "FDR-AX43A",
                 "info": "콘텐츠 크리에이터를 위한 4K 캠코더",
                 "price": 1449000,
-                "date": 202206
+                "date": 202206,
+                "color": ["black"]
             }, 
             {
                 "id": 5,
@@ -96,7 +101,8 @@
                 "title": "FDR-AX700",
                 "info": "4K HDR(HLG), Fast Hybrid AF가 탑재된 전문가급 1인치 핸디캠",
                 "price": 2499000,
-                "date": 201710
+                "date": 201710,
+                "color": ["black"]
             } ], 
           "4k_handheld": [ 
             {
@@ -105,7 +111,8 @@
                 "title": "HXR-NX800 + UWP-D27",
                 "info": "바디 본품 + UWP-D27 마이크 번들 구성",
                 "price": 5820000,
-                "date": 202409
+                "date": 202409,
+                "color": ["black"]
             }, 
             {
                 "id": 7,
@@ -113,10 +120,13 @@
                 "title": "PXW-Z200 + UWP-D27",
                 "info": "바디 본품 + UWP-D27 마이크 번들 구성",
                 "price": 6690000,
-                "date": 202409
+                "date": 202409,
+                "color": ["black"]
             } 
             ] 
         }
     } 
 
 }
+}
+

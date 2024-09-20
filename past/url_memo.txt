@@ -1,0 +1,43 @@
+[전체 목록 보기]
+http://localhost:3001/department
+
+[검색용(완전일치)]
+http://localhost:3001/department?key이름=value
+
+[검색용(값을 포함하는 모든 항목)]
+http://localhost:3001/department?key이름_like=value
+
+[상세보기]
+http://localhost:3001/department/id
+
+type="카메라"&camera="compact"
+
+
+카메라
+https://store.sony.co.kr/products/camera
+
+카메라 - 렌즈교환식
+https://store.sony.co.kr/products/camera/ilc
+카메라 - 렌즈교환식 - 풀프레임
+https://store.sony.co.kr/products/camera/ilc
+카메라 - 렌즈교환식 - 풀프레임 - aps-c
+https://store.sony.co.kr/products/camera/ilc
+
+카메라 - 컴팩트
+https://store.sony.co.kr/products/camera/compact
+
+
+비디오카메라
+https://store.sony.co.kr/products/camera
+
+렌즈
+https://store.sony.co.kr/products/lens
+
+오디오
+https://store.sony.co.kr/products/audio
+
+악세서리
+https://store.sony.co.kr/products/accessory
+
+
+

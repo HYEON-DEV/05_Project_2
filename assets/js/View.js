@@ -1,80 +1,7 @@
 const clr_light_grey = '#fbfbfb';
-/* 
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    //   type: 'custom',
-    },
 
-    // And if we need scrollbar
-    scrollbar: {
-      enabled: false,
-    }, 
-});
- */
-/* 
-const swiperRcmd = new Swiper('.swiper-rcmd', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: false,
 
-    slidesPerView: 4,
-    
-    on: {
-        init: function() {
-            updateNavigationButtons();
-        },
-        slideChange: function() {
-            updateNavigationButtons();
-        },
-        resize: function() {
-            updateNavigationButtons();
-        }
-    },
-
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination-rcmd',
-    },
-
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next-rcmd',
-        prevEl: '.swiper-button-prev-rcmd',
-    },
-    
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar-rcmd',
-    },
-}); */
-
-/* 
-function updateNavigationButtons() {
-    var swiper = document.querySelector('.swiper-rcmd').swiper;
-    var lastSlideIndex = swiper.slides.length - swiper.params.slidesPerGroup;
-
-    if (swiper.isEnd) {
-        document.querySelector('.swiper-button-next-rcmd').style.display = 'none';
-    } else {
-        document.querySelector('.swiper-button-next-rcmd').style.display = '';
-    }
-    
-    if (swiper.isBeginning) {
-        document.querySelector('.swiper-button-prev-rcmd').style.display = 'none';
-    } else {
-        document.querySelector('.swiper-button-prev-rcmd').style.display = '';
-    }
-}
- */
-
-    /* -- -- -- -- -- -- circleColor 메서드 -- -- -- -- -- -- */
+/* -- -- -- -- -- -- circleColor 메서드 -- -- -- -- -- -- */
 const circleColor = selector => {
     //const selector = document.querySelector( selectorName ); //console.log(selector);
     if( !selector ) return;
@@ -90,7 +17,8 @@ const circleColor = selector => {
     span1.appendChild(span2);
     selector.appendChild(span1);
 };
-    /* -- -- -- clr_name 메서드 -- -- -- */
+
+/* -- -- -- clr_name 메서드 -- -- -- */
 const clr_name = clr => {
     switch ( clr ) {
         case "black":
@@ -106,12 +34,16 @@ const clr_name = clr => {
 };
 
 ( async () => {
-    //const params = utilHelper.getQuery();
-    const params = {id:1};
+    const params = utilHelper.getQuery();       
+    console.log(params);
+    //const params = {"id":1,"path1":"camera","path2":"lens_change","path3":"APS-C"};
+    //const paramsArr = Object.values(params);
+    
+    const paramsArr = Object.values(params).slice(1); // id 값 제외
 
-    const curPageId = params.id;
+    const curId = params.id; 
 
-    if ( !curPageId ) {
+    if ( !curId ) {
         alert("제품이 없습니다");
         history.back();
         return;
@@ -120,8 +52,20 @@ const clr_name = clr => {
     let response = null;
 
     try {
-        response = await axios.get(`http://localhost:3001/camera/${curPageId}`);
+        response = await axios.get('http://localhost:3001/products');
+        
+        //  paramsArr 요소로 백엔드 json 접근
+        const responseData = paramsArr.reduce((acc, key) => {
+            return acc[key]; // 각 단계에서 접근
+        }, response.data);
+
+        //console.log(responseData);
+        //  접근한 배열에서 현재 제품의 id만 가져오기
+        const item = responseData.find(item => item.id == curId);
+
+        response.data = item;
         //console.log(response.data);
+
     } catch (e) {
         console.error(e);
         alert("요청 실패");
@@ -129,7 +73,14 @@ const clr_name = clr => {
     }
      
     const colorArr = response.data.color;
-    document.querySelector(".main-img").setAttribute( "src", `assets/img/${response.data.thumbnail}` );
+    
+
+    /* -- -- -- 메인 좌측 - 슬라이더 -- -- -- */
+
+    const viewSwiper = document.querySelector('.view_swiper');
+    
+
+    document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curId}/clr0_0.png` );
     
 
     /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
@@ -214,7 +165,7 @@ const clr_name = clr => {
                 } );
                 //let clrNum = `clr${i}`;
                 //const img = `response.data.img.${clrNum}[0]`; console.log(img);
-                document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curPageId}/clr${i}_${[0]}.png` );
+                document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curId}/clr${i}_${[0]}.png` );
                 
             } );
         } );
@@ -525,14 +476,14 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
 
 
 /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-
+/* 
 ( async () => {
     //const params = utilHelper.getQuery();
     const params = {id:4};
 
-    const curPageId = params.id;
+    const curId = params.id;
 
-    if ( !curPageId ) {
+    if ( !curId ) {
         alert("제품이 없습니다");
         history.back();
         return;
@@ -551,7 +502,7 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
 
     let dataArr;
     response.data.some( (v,i) => {
-        if ( v.id == curPageId ) {
+        if ( v.id == curId ) {
             dataArr = arrayHyeon.removeElementAtIndex(response.data,i);
             return true;
         }
@@ -577,7 +528,7 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
         const img = document.createElement('img');
         img.classList.add('recommend-img');
         const randClr =  Math.floor(Math.random() * 2);
-        img.setAttribute('src',`assets/img/camera${curPageId}/clr${randClr}_${[0]}.png` );
+        img.setAttribute('src',`assets/img/camera${curId}/clr${randClr}_${[0]}.png` );
 
         a.appendChild(img);
         
@@ -606,7 +557,7 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
 
 })();
 
-
+ */
 
 
 

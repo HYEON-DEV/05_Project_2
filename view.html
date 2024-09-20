@@ -29,11 +29,10 @@
 
         <div class="product-view-wrap">    
 
-            <div class="product-view-main">         <!-- flex 좌측 우측 -->
+            <div class="product-view-main">   <!-- flex 좌측 우측 나누기 -->
                 
                 <!-- 메인 좌측 - 사진 슬라이드 -->
-                  <!-- flex width 58% -->
-                    
+                                      
                 <div class="product-main-slider">      
                     <swiper-container class="view_swiper" navigation="true" pagination="true" loop="true">
                         <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
@@ -43,28 +42,8 @@
                 </div>
 
                 
-                <!-- 
-                <div class="product-main-slider">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            
-                            <div class="swiper-slide s1">  </div>
-                            <div class="swiper-slide s2">Slide 2</div>
-                            <div class="swiper-slide s3">Slide 3</div>
-                        </div>
-
-                        <div class="swiper-pagination"></div>
-
-                        <div class="swiper-button-prev swiper-nav"></div>
-                        <div class="swiper-button-next swiper-nav"></div>
-
-                        <div class="swiper-scrollbar"></div>
-                    </div>
-                </div>
- -->
-                
-                <!-- 메인 우측 - 구매관련 -->
-                <div class="product-view-about">  
+                <!-- 메인 우측 - 구매관련 -->  
+                <div class="product-view-about">    <!-- flex width 42% -->
                     
                     <!-- 상품명 -->
                     <div class="product-cont-top">  
@@ -595,6 +574,7 @@
     </div>
 
     <script>loadHTML("./footer.html");</script>
+    <script src="assets/js/UtilHelper.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
