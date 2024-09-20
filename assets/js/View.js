@@ -60,10 +60,8 @@ const clr_name = clr => {
         }, response.data);
 
         //console.log(responseData);
-        //  접근한 배열에서 현재 제품의 id만 가져오기
-        const item = responseData.find(item => item.id == curId);
-
-        response.data = item;
+        //  접근한 배열에서 현재 제품의 id가 포함된 객체 가져오기
+        response.data = responseData.find(item => item.id == curId);
         //console.log(response.data);
 
     } catch (e) {
@@ -71,16 +69,55 @@ const clr_name = clr => {
         alert("요청 실패");
         return;
     }
-     
-    const colorArr = response.data.color;
-    
+    const colorArr = response.data.color;    
+    const imgArr = response.data.img;   //console.log(imgArr);
+
 
     /* -- -- -- 메인 좌측 - 슬라이더 -- -- -- */
 
     const viewSwiper = document.querySelector('.view_swiper');
-    
+    //  이미지 개수 별로 슬라이드 생성 
+    /* 
+    for ( let i=0; i<imgArr[0].length; i++ ) {
+        const swiperSlide = document.createElement('swiper-slide');
+        
+        const div = document.createElement('div');
+        div.classList.add('img-container');
 
-    document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curId}/clr0_0.png` );
+        const img = document.createElement('img');
+        img.classList.add('main-img');
+        img.setAttribute( 'src', `assets/img/camera${curId}/${imgArr[0][i]}` );
+
+        div.appendChild(img);
+        swiperSlide.appendChild(div);
+        viewSwiper.appendChild(swiperSlide);
+    }   
+     */
+
+    //  이미지가 로드된 후에 슬라이드를 추가하도록 -> 이미지 로딩 이벤트
+    async function createSlides(imgArr) {
+        for (let i = 0; i < imgArr[0].length; i++) {
+            const swiperSlide = document.createElement('swiper-slide');
+            const div = document.createElement('div');
+            div.classList.add('img-container');
+    
+            // 이미지 태그 생성
+            const img = document.createElement('img');
+            img.classList.add('main-img');
+            
+            // 슬라이드를 먼저 DOM에 추가
+            div.appendChild(img);
+            swiperSlide.appendChild(div);
+            viewSwiper.appendChild(swiperSlide);
+    
+            // 이미지를 비동기적으로 로드
+            img.setAttribute('src', `assets/img/camera${curId}/${imgArr[0][i]}`);
+        }
+    }
+    
+    // 호출 예
+    createSlides(imgArr);
+    
     
 
     /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
@@ -163,9 +200,11 @@ const clr_name = clr => {
                         v2.classList.remove('active');
                     }
                 } );
-                //let clrNum = `clr${i}`;
-                //const img = `response.data.img.${clrNum}[0]`; console.log(img);
-                document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curId}/clr${i}_${[0]}.png` );
+                
+                document.querySelectorAll(".main-img").forEach( (v3,i3) => {
+                    v3.setAttribute( "src", `assets/img/camera${curId}/${imgArr[i][i3]}` );
+                } );
+                
                 
             } );
         } );

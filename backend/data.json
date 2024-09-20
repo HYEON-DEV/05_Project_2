@@ -9,7 +9,8 @@
                   "info": "The Power of One Frame",
                   "price": 7980000,
                   "date": 202401,
-                  "color": ["black"]
+                  "color": ["black"],
+                  "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png"]]
               },
               {
                   "id": 4,
@@ -18,7 +19,8 @@
                   "info": "원핸드 컴팩트 풀프레임",
                   "price": 2690000,
                   "date": 202309,
-                  "color": [ "silver", "black" ]
+                  "color": [ "silver", "black" ],
+                  "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png"],["clr1_0.png","clr1_1.png","clr1_2.png","clr1_3.png"]]
               }
           ],
           "APS-C": [
@@ -29,7 +31,8 @@
                   "info": "기록의완성",
                   "price": 1340000,
                   "date": 202407,
-                  "color": [ "black", "white" ]
+                  "color": [ "black", "white" ],
+                  "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png","clr0_5.png"],["clr1_0.png","clr1_1.png","clr1_2.png","clr1_3.png","clr1_4.png","clr1_5.png"]]
               },
               {
                   "id": 2,
@@ -38,7 +41,8 @@
                   "info": "기록의완성",
                   "price": 1490000,
                   "date": 202407,
-                  "color": [ "white", "black" ]
+                  "color": [ "white", "black" ],
+                  "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png","clr0_5.png","clr0_6.png","clr0_7.png"],["clr1_0.png","clr1_1.png","clr1_2.png","clr1_3.png","clr1_4.png","clr1_5.png","clr1_6.png","clr1_7.png"]]
               }
           ]
       },
@@ -50,7 +54,8 @@
               "info": "나를 담는 브이로그 카메라 ZV-1F",
               "price": 759000,
               "date": 202208,
-              "color": ["white","black"]
+              "color": ["white","black"],
+              "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png"],["clr1_0.png","clr1_1.png","clr1_2.png","clr1_3.png","clr1_4.png"]]
           }
       ]
     }, 
@@ -64,7 +69,8 @@
             "info": "풀프레임 8.6K 시네마 카메라",
             "price": 36990000,
             "date": 202402,
-            "color": ["black"]
+            "color": ["black"],
+            "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png","clr0_5.png"]]
         }, 
         {
             "id": 2,
@@ -73,7 +79,8 @@
             "info": "시네마라인 렌즈교환식 PTZ 카메라",
             "price": 14990000,
             "date": 202211,
-            "color": ["black"]
+            "color": ["black"],
+            "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png"]]
         }, 
         {
             "id": 3,
@@ -82,7 +89,8 @@
             "info": "시네마라인 Super 35mm 카메라 (바디 킷)",
             "price": 2699000,
             "date": 202210,
-            "color": ["black"]
+            "color": ["black"],
+            "img": [["clr0_0.png","clr0_1.png","clr0_2.png"]]
         } ],
       "camcorder": { 
           "4k_handy": [ 
@@ -93,7 +101,8 @@
                 "info": "콘텐츠 크리에이터를 위한 4K 캠코더",
                 "price": 1449000,
                 "date": 202206,
-                "color": ["black"]
+                "color": ["black"],
+                "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png"]]
             }, 
             {
                 "id": 5,
@@ -102,7 +111,8 @@
                 "info": "4K HDR(HLG), Fast Hybrid AF가 탑재된 전문가급 1인치 핸디캠",
                 "price": 2499000,
                 "date": 201710,
-                "color": ["black"]
+                "color": ["black"],
+                "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png"]]
             } ], 
           "4k_handheld": [ 
             {
@@ -112,7 +122,8 @@
                 "info": "바디 본품 + UWP-D27 마이크 번들 구성",
                 "price": 5820000,
                 "date": 202409,
-                "color": ["black"]
+                "color": ["black"],
+                "img": [["clr0_0.png"]]
             }, 
             {
                 "id": 7,
@@ -121,7 +132,8 @@
                 "info": "바디 본품 + UWP-D27 마이크 번들 구성",
                 "price": 6690000,
                 "date": 202409,
-                "color": ["black"]
+                "color": ["black"],
+                "img": [["clr0_0.png"]]
             } 
             ] 
         }
