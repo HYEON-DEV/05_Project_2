@@ -43,7 +43,18 @@
                   "date": 202407,
                   "color": [ "white", "black" ],
                   "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png","clr0_4.png","clr0_5.png","clr0_6.png","clr0_7.png"],["clr1_0.png","clr1_1.png","clr1_2.png","clr1_3.png","clr1_4.png","clr1_5.png","clr1_6.png","clr1_7.png"]]
+              },
+              {
+                "id": 6,
+                "thumbnail": "clr0_0.png",
+                "title": "ILCE-6700",
+                "info": "MINIMAL WONDER",
+                "price": 1890000,
+                "date": 202307,
+                "color": [ "black" ],
+                "img": [["clr0_0.png","clr0_1.png","clr0_2.png","clr0_3.png"]]
               }
+              
           ]
       },
       "compact": [

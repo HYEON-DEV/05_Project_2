@@ -251,3 +251,56 @@ document.querySelector(".go_kakao").addEventListener('click', e => {
 });
 
 /*** sweetalert (modal) end ***/
+
+
+
+
+
+
+/**
+ * 제품 id 에 따른 상위 category들을 query string 으로 생성
+ * @param {object} data  제품 리스트 json
+ * @param {object} targetObject  선택한 제품 object
+ * @returns  상위key값을 querystring으로 변환한 문자열
+ */
+
+function queryStringById ( data, targetObject ) {
+        
+    //  제품별 상위key값 배열로 반환하는 메서드
+    function findParentKeys(data, targetObject) {
+        const parentKeys = [];
+    
+        function recursiveSearch(currentObject, target) {
+            for (const key in currentObject) {
+                if (Array.isArray(currentObject[key])) {
+                    for (const item of currentObject[key]) {
+                        if (item === target) {
+                            parentKeys.unshift(key);
+                            return true;
+                        }
+                    }
+                } else if (currentObject[key] === target) {
+                    parentKeys.unshift(key);
+                    return true;
+                } else if (typeof currentObject[key] === 'object' && currentObject[key] !== null) {
+                    const found = recursiveSearch(currentObject[key], target);
+                    if (found) {
+                        parentKeys.unshift(key);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    
+        recursiveSearch(data, targetObject);
+        return parentKeys;
+    }
+
+    //  상위key값이 원소인 배열을 querystring으로 변환하는 메서드 
+    function createQueryString( keys ) {
+        return keys.map((key, index) => `path${index + 1}=${encodeURIComponent(key)}`).join('&');
+    }
+
+    return createQueryString( findParentKeys( data, targetObject) );
+} 
