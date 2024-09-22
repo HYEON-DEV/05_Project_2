@@ -53,28 +53,15 @@ window.onload = async (e) => {
 
     //배경 이미지를 설정하는 함수
     function updateBackgroundImage() {
-        const category = document.querySelector(".category");
         const categoryBackground = document.getElementById('categoryBackground');
-        const categoryList = document.querySelector(".category_list");
-        const categoryLink = document.querySelector(".category_link");
-        const goBack = document.querySelector(".go_back");
-
         let imageUrl = '';
     
         if (subCategoryKey && backgroundImages[categoryKey][subCategoryKey]) {
             // 서브 카테고리의 배경 이미지 설정
             imageUrl = `url(assets/img/background/${backgroundImages[categoryKey][subCategoryKey]})`;
-            category.style.padding = "110px 0 0"
-            categoryList.classList.add("display_none");
-            categoryLink.classList.remove("display_none");
-            goBack.classList.remove("display_none");
         } else if (backgroundImages[categoryKey].default) {
             // 카테고리 메인 페이지의 배경 이미지 설정
             imageUrl = `url(assets/img/background/${backgroundImages[categoryKey].default})`;
-            category.style.padding = "110px 0 124px"
-            categoryList.classList.remove("display_none");
-            categoryLink.classList.add("display_none");
-            goBack.classList.add("display_none");
         } else {
             // 기본 배경 이미지 설정 (필요에 따라 수정)
             imageUrl = 'none';
@@ -85,7 +72,7 @@ window.onload = async (e) => {
     
 
     // 페이지에 카테고리 이름 업데이트
-    document.querySelector('.go_back').innerHTML = '<i class="fas fa-angle-left"></i>&nbsp;' + categoryNames[categoryKey]; // 'go_back' 버튼 텍스트 설정
+    document.querySelector('.go_back').textContent = categoryNames[categoryKey]; // 'go_back' 버튼 텍스트 설정
     
     const categoryNameElement = document.querySelector('.category_name');   //서브 카테고리 이름으로 업데이트
     if (subCategoryKey) {
@@ -282,51 +269,42 @@ window.onload = async (e) => {
             item.appendChild(imgContainer);
             
 
-     // 색상 선택 버튼들
-     if (v.color && v.color.length > 1) {
-        const colorButtons = document.createElement("div");
-        colorButtons.classList.add("color-buttons");
+            // 색상 선택 버튼들
+            if (v.color && v.color.length > 1) {
+                const colorButtons = document.createElement("div");
+                colorButtons.classList.add("color-buttons");
 
-        v.color.forEach((color, index) => {
-            const button = document.createElement("button");
-            const buttonInner = document.createElement("button");
+                v.color.forEach((color, index) => {
+                    const button = document.createElement("button");
+                    button.classList.add("color-button");
+                    button.setAttribute("data-color-index", index);
 
-            button.classList.add("color-button");
-            button.setAttribute("data-color-index", index);
+                    // 버튼 배경색을 실제 색상으로 설정
+                    button.style.backgroundColor = color;
 
-            // 버튼 배경색을 실제 색상으로 설정
-            button.style.backgroundColor = color;
+                    // 마우스 오버 이벤트 리스너
+                    button.addEventListener('mouseover', () => {
+                        img.setAttribute("src", `assets/img/${folderName}/clr${index}_0.png`);
+                    });
 
-            if(button.style.backgroundColor == "black") {
-                button.appendChild(buttonInner);
-                buttonInner.classList.add("color-button-inner");
+                    colorButtons.appendChild(button);
+                });
+
+                item.appendChild(colorButtons);
             }
 
-            // 마우스 오버 이벤트 리스너
-            button.addEventListener('mouseover', () => {
-                img.setAttribute("src", `assets/img/${folderName}/clr${index}_0.png`);
-            });
+            // 제품 제목
+            const title = document.createElement("h3");
+            title.innerHTML = v.title;
+            item.appendChild(title);
 
-            colorButtons.appendChild(button);
-        });
+            // 제품 정보
+            const info = document.createElement("p");
+            info.innerHTML = v.info;
+            item.appendChild(info);
 
-        item.appendChild(colorButtons);
-    } else {
-        img.style.marginBottom = "24px";
-    }
-
-    // 제품 제목
-    const title = document.createElement("h3");
-    title.innerHTML = v.title;
-    item.appendChild(title);
-
-    // 제품 정보
-    const info = document.createElement("p");
-    info.innerHTML = v.info;
-    item.appendChild(info);
-
-    // 제품 가격
-    const price = document.createElement("span");
+            // 제품 가격
+            const price = document.createElement("p");
             price.innerHTML = v.price.toLocaleString('ko-KR') + '원'; // 숫자 형태를 한국 스타일의 쉼표 구분 형식으로 변환
             item.appendChild(price);
 
@@ -372,16 +350,6 @@ window.onload = async (e) => {
     document.querySelector('.sort_recent').addEventListener('click', e => {
         e.preventDefault();
         sortProductsByDate();
-    });
-
-    // 정렬 버튼 active 추가
-    document.querySelectorAll('.sort').forEach( (v, i) => {
-        v.addEventListener("click", (e) => {
-            document.querySelectorAll('.sort').forEach( (v, i) => {
-                v.classList.remove("sort_active");
-            });
-            e.currentTarget.classList.add("sort_active");
-        })
     });
 
     // 카테고리 리스트 클릭 이벤트

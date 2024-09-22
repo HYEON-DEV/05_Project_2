@@ -3,7 +3,7 @@ const clr_light_grey = '#fbfbfb';
 
 /* -- -- -- -- -- -- circleColor 메서드 -- -- -- -- -- -- */
 const circleColor = selector => {
-    
+    //const selector = document.querySelector( selectorName ); //console.log(selector);
     if( !selector ) return;
 
     selector.classList.add('color-btn');
@@ -36,8 +36,12 @@ const clr_name = clr => {
 ( async () => {
 
     const params = utilHelper.getQuery();       
-        
+    //console.log(`params : ${params}`);
+    //const params = {"id":1,"path1":"camera","path2":"lens_change","path3":"APS-C"};
+    //const paramsArr = Object.values(params);
+    
     const paramsArr = Object.values(params).slice(1); // id 값 제외
+    //console.log(paramsArr);
 
     const curId = params.id; 
 
@@ -61,7 +65,9 @@ const clr_name = clr => {
         //console.log(products);
    
         //  접근한 배열에서 현재 제품의 id가 포함된 객체 가져오기
+        //response.data = products.find(item => item.id == curId);
         item = products.find(item => item.id == curId);
+        //console.log(item);
 
     } catch (e) {
         console.error(e);
@@ -71,6 +77,7 @@ const clr_name = clr => {
     
     const colorArr = item.color;    
     const imgArr = item.img;
+    
 
 
     /* -- -- -- 메인 좌측 - 슬라이더 -- -- -- */
@@ -91,8 +98,9 @@ const clr_name = clr => {
         div.appendChild(img);
         swiperSlide.appendChild(div);
         swiperContainerViewSwiper.appendChild(swiperSlide);
+        //viewSwiper.appendSlide(swiperSlide);
     }    
-    
+    //viewSwiper.update(); 
 
 
     /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
@@ -234,7 +242,7 @@ const clr_name = clr => {
     /* -- -- 제품 선택 - 선택된 제품 박스 -- -- */
     
     const innerList = document.querySelectorAll('.inner-list');     // submenu list  선택할 제품 목록
-    
+    //console.log(innerList.length);
     innerList.forEach( (v,i) => {    
         
         v.addEventListener( 'click', e => {
@@ -272,6 +280,7 @@ const clr_name = clr => {
                 
                 const submenuTxt = current.querySelector('.submenu-txt');
                 div4.appendChild( submenuTxt.cloneNode(true) );
+                //console.log(div4);
 
                 const div5 = document.createElement('div');
                 div5.classList.add('selected-bottom');
@@ -313,6 +322,9 @@ const clr_name = clr => {
                 //console.log(div1);
                 
                 document.querySelector('.prd-select-box').appendChild(div1);
+
+                //selectedOpts.push(div1);
+                //console.log(selectedOpts); // 현재까지 생성된 선택된 옵션 출력
                  
                 a.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -376,7 +388,7 @@ const clr_name = clr => {
     
     const productList = getProducts( response.data, paramsArr[0] );     //console.log(productList);
     
-    
+ 
     //  현재 제품 제외한 제품 배열 dataArr
     let dataArr;
     productList.some( (v,i) => {
@@ -412,6 +424,8 @@ const clr_name = clr => {
 
         a.appendChild(img);
         
+        //div.style.backgroundColor = clr_light_grey;
+        
         const span1 = document.createElement('span');
         span1.classList.add('recommend-title');
         span1.innerHTML = v.title;
@@ -431,6 +445,8 @@ const clr_name = clr => {
         swiperSlide.appendChild(div);
         swiperContainer.appendChild(swiperSlide);
     } );    
+    
+
 })();
 
 
@@ -450,6 +466,7 @@ function calculateTotal() {
             const count = parseInt(countInput.value, 10);
             total += price * count;
         }
+
     });
     
     totalPrice.textContent = total.toLocaleString();
@@ -506,7 +523,7 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
     a.classList.add('btn-icon');
     v.appendChild(a);
 
-    const iconUrl = `../assets/img/ico_${v.classList[0]}.svg`;
+    const iconUrl = `./assets/img/ico_${v.classList[0]}.svg`;
     v.style.background = `url(${iconUrl}) no-repeat center`;
 } );
 
