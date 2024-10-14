@@ -98,9 +98,9 @@ const clr_name = clr => {
         div.appendChild(img);
         swiperSlide.appendChild(div);
         swiperContainerViewSwiper.appendChild(swiperSlide);
-        
+        //viewSwiper.appendSlide(swiperSlide);
     }    
-    
+    //viewSwiper.update(); 
 
 
     /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
