@@ -49,79 +49,65 @@ a, button {
         /* height: 574.63px; */
         /* overflow: hidden; */
         background-color: var(--my-color-light-blue);
+        
     }
     .product-view-about {
         width: 42%;
         /* height: 574.63px; */
         /* background-color: rgba(0,0,100,0.1); */
-        padding: 0 100px;
+        padding: 0 118px;
         padding-top: 150px;
-
+        margin-top: 20px;
+        
     }
 }
 
 /* - - - 메인 좌측 이미지 슬라이더 - - - */
 
-.product-main-slider {
-    padding-top: 100px;
-    swiper-slide{
-        padding: 0 10%;
-    }
-    .img-container {
-        /* width: 856px;
-        height: 856px; */
-        /* margin: auto; */
-        /* width: 100%; */
-        /* height: 100%; */
-        /* padding: 0 20%; */
-        img {
-            width: 100%;
-            object-fit: cover;
+.swiper-container {
+    margin-top: 120px;
+    padding-bottom: 40px;
+    position: sticky;
+    top: 0;
+}
+.swiper {
+    .swiper-wrapper {
+        .swiper-slide {
+            padding: 0 120px;
+            .img-container {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
         }
     }
-}
 
-/* 
-.swiper {
-    width: 100%;
-    height: 100%;
-
-    .swiper-nav {
-        --swiper-navigation-size: 32px;
+    .swiper-button-next, .swiper-button-prev {
+        --swiper-navigation-size: 36px;
         --swiper-navigation-top-offset: 50%;
         --swiper-navigation-sides-offset: 60px;
         --swiper-navigation-color: var(--my-color-black);
     }
 }
+.swiper-pagination {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.swiper-pagination .pagination-bar {
+    margin: 0 4px;
+    width: 2px;
+    height: 8px;
+    background: var(--my-color-light-grey-2);
+    transition: all .3s;
+}
+.swiper-pagination .active {
+    height: 13px;
+    background-color: #444;
+}
 
-.s1 { background-color: rgba(50,0,0,0.1);}
-.s2 { background-color: rgba(0,50,0,0.1);}
-.s3 { background-color: rgba(0,0,50,0.1);}
- */
-
-.swiper-rcmd {
-    /* width: 100%;
-    height: 100%; */
-    /* width: 1224px;
-    height: 395px; */
-    /* 
-    .swiper-nav {
-        --swiper-navigation-size: 32px;
-        --swiper-navigation-top-offset: 50%;
-        --swiper-navigation-sides-offset: 60px;
-        --swiper-navigation-color: var(--my-color-black);
-    } */
-} 
-/* 
-.view_swiper {
-    width: 100%;
-
-    swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-} */
 
 /* - - - - - - - - - 메인 우측 - 구매관련 - - - - - - - */
 .product-view-about {
@@ -174,7 +160,7 @@ a, button {
             width: 24px;
             height: 24px;
             background: url(../img/ico_share.df6b9463.svg) no-repeat;
-            margin: auto 0;
+            margin: 30px 0;
         }
         
     }
@@ -558,7 +544,7 @@ a, button {
         color: var(--my-color-black);
         margin-bottom: 35px;
     }
-
+    /* 
     .rcmd-prd-list { 
         width: fit-content; 
         margin: auto;
@@ -567,9 +553,6 @@ a, button {
         display: flex;
         justify-content: center;
         width: fit-content;
-        
-        
-        /* overflow: hidden; */
 
         li { 
             margin-right: 24px;
@@ -602,53 +585,80 @@ a, button {
             color: var(--my-color-grey-3);
         }
     }
+     */
 }
-
-.recommendSwiper {
+.swiper-2 {
     width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
 
-    .recommend-img-container {
-        display:flex;
-        flex-direction: column;
-
-        .recommend-img{
-            background-color: var(--my-color-light-blue);
-            width: 282px;
-            height: 282px;
-        }
-
-        .recommend-title {
-            margin: 16px 0;
-            font-size: 18px;
-            font-weight: 700;
-            height: auto;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            display: block;
-            color: var(--my-color-black);
-            line-height: 1.4;
-            letter-spacing: -.025em;
-            word-break: keep-all;
-        }
-
-        .recommend-desc {
-            min-height: 48px;
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-box-orient: vertical;
-            font-size: 14px;
-            line-height: 24px;
-            color: #666;
-        }
-
-        .recommend-price {
-            font-size: 16px;
-            font-weight: 700;
+    .swiper-wrapper {
+        .swiper-slide {
+            margin-right: 8px;
+            .recommend-img-container {
+                display:flex;
+                flex-direction: column;
+        
+                .recommend-img{
+                    background-color: var(--my-color-light-blue);
+                    width: 282px;
+                    height: 282px;
+                }
+        
+                .recommend-title {
+                    margin: 16px 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                    height: auto;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    display: block;
+                    color: var(--my-color-black);
+                    line-height: 1.4;
+                    letter-spacing: -.025em;
+                    word-break: keep-all;
+                }
+        
+                .recommend-desc {
+                    min-height: 48px;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #666;
+                }
+        
+                .recommend-price {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
         }
     }
+} 
+
+.swiper-button-prev-2, .swiper-button-next-2 {
+    position: absolute; 
+    top: 35%; 
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    background: url(../img/swiper-button-2.png) no-repeat;
+    background-size: cover;
+    cursor: pointer;
 }
+.swiper-button-prev-2 {
+    left: 18px; 
+}
+.swiper-button-next-2 {
+    right: 18px;
+    transform: rotate(180deg);
+}
+
 
 /* -- -- -- -- -- -- -- exhibitions -- -- -- -- -- -- --*/
 .product-content-exhibitions {
